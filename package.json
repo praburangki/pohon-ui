@@ -1,0 +1,173 @@
+{
+  "name": "@vinicunca/pohon-ui",
+  "type": "module",
+  "version": "1.0.0-alpha.1",
+  "packageManager": "pnpm@10.4.1",
+  "description": "UI Library, powered by Vue & UnoCSS.",
+  "license": "MIT",
+  "homepage": "https://pohon-ui.vinicunca.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vinicunca/pohon-ui.git"
+  },
+  "keywords": [
+    "pohon",
+    "pohon-ui",
+    "nuxt",
+    "vue3",
+    "unocss",
+    "component library",
+    "vue",
+    "vuejs",
+    "vue.js",
+    "typescript",
+    "vue-components",
+    "ui",
+    "framework",
+    "ui-framework"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/module.d.ts",
+      "style": "./dist/runtime/index.css",
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs"
+    },
+    "./unplugin": {
+      "types": "./dist/unplugin.d.ts",
+      "import": "./dist/unplugin.mjs",
+      "require": "./dist/unplugin.cjs"
+    },
+    "./vite": {
+      "types": "./dist/vite.d.ts",
+      "import": "./dist/vite.mjs",
+      "require": "./dist/vite.cjs"
+    },
+    "./vue-plugin": {
+      "types": "./vue-plugin.d.ts"
+    },
+    "./runtime/*": "./dist/runtime/*",
+    "./utils/*": {
+      "types": "./dist/runtime/utils/*.d.ts",
+      "import": "./dist/runtime/utils/*.js"
+    },
+    "./locale": {
+      "types": "./dist/runtime/locale/index.d.ts",
+      "import": "./dist/runtime/locale/index.js"
+    }
+  },
+  "imports": {
+    "#build/pohon/*": "./.nuxt/pohon/*.ts",
+    "#build/pohon.css": "./.nuxt/pohon.css"
+  },
+  "main": "./dist/module.cjs",
+  "types": "./dist/types.d.ts",
+  "files": [
+    ".nuxt/pohon",
+    "dist",
+    "vue-plugin.d.ts"
+  ],
+  "scripts": {
+    "build": "nuxt-module-build build && pnpm devtools:build",
+    "prepack": "pnpm build",
+    "dev": "DEV=true nuxi dev playground",
+    "dev:vue": "DEV=true vite playground-vue",
+    "dev:build": "nuxi build playground",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground && nuxi prepare docs && nuxi prepare devtools && vite build playground-vue",
+    "devtools": "NUXT_UI_DEVTOOLS_LOCAL=true nuxi dev playground",
+    "devtools:build": "nuxi generate devtools",
+    "devtools:prepare": "DEVTOOLS=true nuxt-component-meta playground --outputDir ../src/devtools/.component-meta/",
+    "docs": "DEV=true nuxi dev docs",
+    "docs:build": "nuxi build docs",
+    "docs:prepare": "nuxt-component-meta docs",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "typecheck": "vue-tsc --noEmit && nuxi typecheck playground && nuxi typecheck docs && nuxi typecheck devtools && cd playground-vue && vue-tsc --noEmit",
+    "test": "vitest",
+    "test:vue": "vitest -c vitest.vue.config.ts",
+    "test:vue:build": "vite build playground-vue",
+    "release": "release-it --preRelease=alpha --npm.tag=next"
+  },
+  "peerDependencies": {
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "@iconify/vue": "catalog:",
+    "@internationalized/date": "catalog:",
+    "@internationalized/number": "catalog:",
+    "@nuxt/devtools-kit": "catalog:",
+    "@nuxt/fonts": "catalog:",
+    "@nuxt/icon": "catalog:",
+    "@nuxt/kit": "catalog:",
+    "@nuxt/schema": "catalog:",
+    "@nuxtjs/color-mode": "catalog:",
+    "@tanstack/vue-table": "catalog:",
+    "@unhead/vue": "catalog:",
+    "@vinicunca/akar": "catalog:",
+    "@vinicunca/perkakas": "catalog:",
+    "@vueuse/core": "catalog:",
+    "@vueuse/integrations": "catalog:",
+    "colortranslator": "catalog:",
+    "consola": "catalog:",
+    "defu": "catalog:",
+    "embla-carousel-auto-height": "catalog:",
+    "embla-carousel-auto-scroll": "catalog:",
+    "embla-carousel-autoplay": "catalog:",
+    "embla-carousel-class-names": "catalog:",
+    "embla-carousel-fade": "catalog:",
+    "embla-carousel-vue": "catalog:",
+    "embla-carousel-wheel-gestures": "catalog:",
+    "fuse.js": "catalog:",
+    "get-port-please": "catalog:",
+    "knitwork": "catalog:",
+    "magic-string": "catalog:",
+    "mlly": "catalog:",
+    "ohash": "catalog:",
+    "pathe": "catalog:",
+    "sirv": "catalog:",
+    "tinyglobby": "catalog:",
+    "unplugin": "catalog:",
+    "unplugin-auto-import": "catalog:",
+    "unplugin-vue-components": "catalog:",
+    "vaul-vue": "catalog:"
+  },
+  "devDependencies": {
+    "@nuxt/module-builder": "catalog:",
+    "@nuxt/test-utils": "catalog:",
+    "@release-it/conventional-changelog": "catalog:",
+    "@standard-schema/spec": "catalog:",
+    "@vinicunca/eslint-config": "catalog:",
+    "@vinicunca/unocss-preset": "catalog:",
+    "@vue/test-utils": "catalog:",
+    "embla-carousel": "catalog:",
+    "eslint": "catalog:",
+    "happy-dom": "catalog:",
+    "joi": "catalog:",
+    "nuxt": "catalog:",
+    "nuxt-component-meta": "catalog:",
+    "release-it": "catalog:",
+    "superstruct": "catalog:",
+    "valibot": "catalog:",
+    "vitest": "catalog:",
+    "vitest-environment-nuxt": "catalog:",
+    "vue-tsc": "catalog:",
+    "yup": "catalog:",
+    "zod": "catalog:"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "better-sqlite3"
+    ]
+  },
+  "resolutions": {
+    "@vinicunca/pohon-ui": "workspace:*",
+    "chokidar": "3.6.0",
+    "debug": "4.3.7",
+    "rollup": "4.32.1",
+    "typescript": "5.6.3",
+    "unimport": "3.14.5",
+    "unplugin": "^2.2.0",
+    "vue": "3.5.13",
+    "vue-tsc": "2.2.0"
+  }
+}

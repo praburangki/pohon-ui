@@ -1,0 +1,45 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
+  },
+  "editor.formatOnSave": false,
+  "emmet.showSuggestionsAsSnippets": true,
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.includeLanguages": {
+    "typescriptreact": "html",
+    "postcss": "css"
+  },
+  "eslint.codeAction.showDocumentation": {
+    "enable": true
+  },
+  "editor.gotoLocation.multipleDefinitions": "goto",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "html",
+    "markdown",
+    "json",
+    "jsonc",
+    "yaml",
+    "toml",
+    "xml",
+    "gql",
+    "graphql",
+    "astro",
+    "svelte",
+    "css",
+    "less",
+    "scss",
+    "pcss",
+    "postcss"
+  ],
+  "typescript.tsdk": "node_modules/typescript/lib",
+
+  "editor.quickSuggestions": {
+    "strings": true
+  }
+}
