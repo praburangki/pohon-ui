@@ -1,5 +1,5 @@
 {
-  "name": "@vinicunca/pohon-ui-playground",
+  "name": "@vinicunca/pohon-playground",
   "type": "module",
   "private": true,
   "scripts": {
@@ -8,9 +8,9 @@
     "generate": "nuxi generate"
   },
   "dependencies": {
-    "@iconify-json/lucide": "^1.2.25",
-    "@iconify-json/simple-icons": "^1.2.23",
-    "@vinicunca/pohon-ui": "latest",
+    "@iconify-json/lucide": "^1.2.26",
+    "@iconify-json/simple-icons": "^1.2.25",
+    "@vinicunca/pohon": "latest",
     "nuxt": "catalog:"
   }
 }

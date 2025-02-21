@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@vinicunca/pohon-ui": "latest",
+    "@vinicunca/pohon": "latest",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
   },

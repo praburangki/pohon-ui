@@ -13,7 +13,7 @@ export default defineBuildConfig({
   },
   replace: {
     'process.env.DEV': 'false',
-    'process.env.NUXT_POHON_UI_DEVTOOLS_LOCAL': 'false',
+    'process.env.NUXT_POHON_DEVTOOLS_LOCAL': 'false',
   },
   hooks: {
     'mkdist:entry:options': function (_ctx, _entry, options) {

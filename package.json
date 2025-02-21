@@ -1,18 +1,17 @@
 {
-  "name": "@vinicunca/pohon-ui",
+  "name": "@vinicunca/pohon",
   "type": "module",
   "version": "1.0.0-alpha.1",
   "packageManager": "pnpm@10.4.1",
   "description": "UI Library, powered by Vue & UnoCSS.",
   "license": "MIT",
-  "homepage": "https://pohon-ui.vinicunca.dev",
+  "homepage": "https://pohon.vinicunca.dev",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vinicunca/pohon-ui.git"
+    "url": "git+https://github.com/vinicunca/pohon.git"
   },
   "keywords": [
     "pohon",
-    "pohon-ui",
     "nuxt",
     "vue3",
     "unocss",
@@ -57,8 +56,7 @@
     }
   },
   "imports": {
-    "#build/pohon/*": "./.nuxt/pohon/*.ts",
-    "#build/pohon.css": "./.nuxt/pohon.css"
+    "#build/pohon/*": "./.nuxt/pohon/*.ts"
   },
   "main": "./dist/module.cjs",
   "types": "./dist/types.d.ts",
@@ -147,6 +145,7 @@
     "nuxt-component-meta": "catalog:",
     "release-it": "catalog:",
     "superstruct": "catalog:",
+    "unocss": "^66.0.0",
     "valibot": "catalog:",
     "vitest": "catalog:",
     "vitest-environment-nuxt": "catalog:",
@@ -160,7 +159,7 @@
     ]
   },
   "resolutions": {
-    "@vinicunca/pohon-ui": "workspace:*",
+    "@vinicunca/pohon": "workspace:*",
     "chokidar": "3.6.0",
     "debug": "4.3.7",
     "rollup": "4.32.1",
