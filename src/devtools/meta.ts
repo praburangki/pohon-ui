@@ -114,7 +114,7 @@ export function devtoolsMetaPlugin({ resolve, options, templates }: { resolve: R
                     ?? template?.defaultVariants?.[prop.name];
 
                 if (typeof defaultValue === 'string') {
-                  defaultValue = defaultValue?.replaceAll(/["'`]/g, '');
+                  defaultValue = defaultValue?.replace(/\s+as\s+\w+$/g, '').replaceAll(/["'`]/g, '');
                 }
                 if (defaultValue === 'true') {
                   defaultValue = true;

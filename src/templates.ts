@@ -88,7 +88,7 @@ export function getTemplates(options: ModuleOptions, pohonConfig: Record<string,
     filename: 'types/pohon.d.ts',
     getContents: () => `import * as pohon from '#build/pohon';
 import type { DeepPartial } from '@vinicunca/pohon';
-import type { defaultConfig } from 'tailwind-variants';
+import type { defaultConfig } from 'unocss-variants';
 import type { colors } from 'unocss/preset-mini';
 
 const icons = ${JSON.stringify(pohonConfig.icons)};
@@ -113,6 +113,16 @@ declare module '@nuxt/schema' {
 
 export {};
 `,
+  });
+
+  templates.push({
+    filename: 'pohon-image-component.ts',
+    write: true,
+    getContents: ({ app }) => {
+      const image = app?.components?.find((c) => c.pascalName === 'NuxtImg' && !c.filePath.includes('nuxt/dist/app'));
+
+      return image ? `export { default } from "${image.filePath}"` : 'export default "img"';
+    },
   });
 
   return templates;
