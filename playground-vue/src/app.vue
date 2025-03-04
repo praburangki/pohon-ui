@@ -1,11 +1,6 @@
 <script setup lang="ts">
-// @ts-expect-error included for compatibility with Nuxt playground
-import { useAppConfig } from '#imports';
 import { useColorMode } from '@vueuse/core';
-import { splitByCase, upperFirst } from 'scule';
-import { reactive, ref } from 'vue';
-
-import { useRouter } from 'vue-router';
+import { reactive } from 'vue';
 
 const appConfig = useAppConfig();
 const mode = useColorMode();
@@ -15,74 +10,6 @@ appConfig.toaster = reactive({
   expand: true,
   duration: 5000,
 });
-
-const router = useRouter();
-
-const components = [
-  'accordion',
-  'alert',
-  'avatar',
-  'badge',
-  'breadcrumb',
-  'button',
-  'button-group',
-  'card',
-  'calendar',
-  'carousel',
-  'checkbox',
-  'chip',
-  'collapsible',
-  'color-picker',
-  'context-menu',
-  'command-palette',
-  'drawer',
-  'dropdown-menu',
-  'form',
-  'form-field',
-  'input',
-  'input-menu',
-  'input-number',
-  'kbd',
-  'link',
-  'modal',
-  'navigation-menu',
-  'pagination',
-  'pin-input',
-  'popover',
-  'progress',
-  'radio-group',
-  'select',
-  'select-menu',
-  'separator',
-  'shortcuts',
-  'skeleton',
-  'slideover',
-  'slider',
-  'stepper',
-  'switch',
-  'tabs',
-  'table',
-  'textarea',
-  'toast',
-  'tooltip',
-  'tree',
-];
-
-const items = components.map((component) => ({ label: upperName(component), to: `/components/${component}` }));
-
-function upperName(name: string) {
-  return splitByCase(name).map((p) => upperFirst(p)).join('');
-}
-
-const isCommandPaletteOpen = ref(false);
-
-function onSelect(item: any) {
-  router.push(item.to);
-}
-
-// defineShortcuts({
-//   meta_k: () => isCommandPaletteOpen.value = true,
-// });
 </script>
 
 <template>
