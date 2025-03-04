@@ -72,9 +72,6 @@ export const PohonPlugin = createUnplugin<PohonOptions | undefined>((options_ = 
     ComponentImportPlugin(options, meta),
     AutoImportPlugin(options, meta),
     UnoCss({
-      layers: {
-        anu: -300,
-      },
       presets: [
         presetPohon(appConfig.pohon),
       ],

@@ -28,7 +28,6 @@
   "exports": {
     ".": {
       "types": "./dist/module.d.ts",
-      "style": "./dist/runtime/index.css",
       "import": "./dist/module.mjs",
       "require": "./dist/module.cjs"
     },
@@ -45,27 +44,17 @@
     "./vue-plugin": {
       "types": "./vue-plugin.d.ts"
     },
-    "./unocss-preset": {
-      "types": "./dist/unocss-preset.d.ts",
-      "import": "./dist/unocss-preset.mjs",
-      "require": "./dist/unocss-preset.cjs"
-    },
     "./runtime/*": "./dist/runtime/*",
     "./components/*": "./dist/runtime/components/*",
     "./composables/*": "./dist/runtime/composables/*",
     "./utils/*": {
       "types": "./dist/runtime/utils/*.d.ts",
       "import": "./dist/runtime/utils/*.js"
-    },
-    "./locale": {
-      "types": "./dist/runtime/locale/index.d.ts",
-      "import": "./dist/runtime/locale/index.js"
     }
   },
   "imports": {
     "#build/pohon/*": "./.nuxt/pohon/*.ts"
   },
-  "style": "./dist/runtime/index.css",
   "main": "./dist/module.cjs",
   "types": "./dist/types.d.ts",
   "files": [

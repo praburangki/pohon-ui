@@ -5,8 +5,6 @@ export default defineBuildConfig({
     // Vue support
     './src/unplugin',
     './src/vite',
-    // UnoCSS support
-    './src/unocss-preset',
   ],
   rollup: {
     emitCJS: true,
@@ -19,5 +17,9 @@ export default defineBuildConfig({
       options.addRelativeDeclarationExtensions = false;
     },
   },
-  externals: ['#build/pohon', 'vite'],
+  externals: [
+    '#build/pohon',
+    'vite',
+    '@unocss/core',
+  ],
 });
