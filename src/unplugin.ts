@@ -9,6 +9,7 @@ import type icons from './theme/icons';
 import { fileURLToPath } from 'node:url';
 import { defu } from 'defu';
 import { normalize } from 'pathe';
+
 import UnoCss from 'unocss/vite';
 import { createUnplugin } from 'unplugin';
 
@@ -19,11 +20,12 @@ import ComponentImportPlugin from './plugins/components';
 import NuxtEnvironmentPlugin from './plugins/nuxt-environment';
 import PluginsPlugin from './plugins/plugins';
 import TemplatePlugin from './plugins/templates';
+import { presetPohon } from './unocss-preset';
 
 type NeutralColor = 'slate' | 'gray' | 'zinc' | 'neutral' | 'stone';
 type Color = Exclude<keyof typeof colors, 'inherit' | 'current' | 'transparent' | 'black' | 'white' | NeutralColor> | (string & {});
 
-type AppConfigPohon = {
+export type AppConfigPohon = {
   // TODO: add type hinting for colors from `options.theme.colors`
   colors?: Record<string, Color> & { neutral?: NeutralColor };
   icons?: Partial<typeof icons>;
@@ -53,7 +55,7 @@ export const runtimeDir = normalize(fileURLToPath(new URL('./runtime', import.me
 export const PohonPlugin = createUnplugin<PohonOptions | undefined>((options_ = {}, meta) => {
   const options = defu(
     options_,
-    { fonts: false, devtools: { enabled: false } },
+    { fonts: false },
     defaultOptions,
   );
 
@@ -70,12 +72,12 @@ export const PohonPlugin = createUnplugin<PohonOptions | undefined>((options_ = 
     ComponentImportPlugin(options, meta),
     AutoImportPlugin(options, meta),
     UnoCss({
-      content: {
-        filesystem: [
-          './node_modules/flowbite-svelte/dist/*/*.svelte',
-          './theme/*/*.ts',
-        ],
+      layers: {
+        anu: -300,
       },
+      presets: [
+        presetPohon(appConfig.pohon),
+      ],
     }),
     PluginsPlugin(options),
     TemplatePlugin(options, appConfig),

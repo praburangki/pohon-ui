@@ -1,38 +1,38 @@
 export default {
   slots: {
-    root: 'inline-flex items-center justify-center shrink-0 select-none overflow-hidden rounded-full align-middle bg-(--ui-bg-elevated)',
-    image: 'h-full w-full rounded-[inherit] object-cover',
-    fallback: 'font-medium leading-none text-(--ui-text-muted) truncate',
-    icon: 'text-(--ui-text-muted) shrink-0',
+    root: '',
+    image: '',
+    fallback: '',
+    icon: '',
   },
   variants: {
     size: {
       '3xs': {
-        root: 'size-4 text-[8px]',
+        root: '',
       },
       '2xs': {
-        root: 'size-5 text-[10px]',
+        root: '',
       },
       'xs': {
-        root: 'size-6 text-xs',
+        root: '',
       },
       'sm': {
-        root: 'size-7 text-sm',
+        root: '',
       },
       'md': {
-        root: 'size-8 text-base',
+        root: '',
       },
       'lg': {
-        root: 'size-9 text-lg',
+        root: '',
       },
       'xl': {
-        root: 'size-10 text-xl',
+        root: '',
       },
       '2xl': {
-        root: 'size-11 text-[22px]',
+        root: '',
       },
       '3xl': {
-        root: 'size-12 text-2xl',
+        root: '',
       },
     },
   },

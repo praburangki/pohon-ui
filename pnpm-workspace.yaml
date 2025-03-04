@@ -2,7 +2,6 @@ catalog:
   '@iconify/vue': ^4.3.0
   '@internationalized/date': ^3.7.0
   '@internationalized/number': ^3.6.0
-  '@nuxt/devtools-kit': ^2.1.0
   '@nuxt/fonts': ^0.10.3
   '@nuxt/icon': ^1.10.3
   '@nuxt/kit': ^3.15.4
@@ -17,7 +16,7 @@ catalog:
   '@vinicunca/akar': 1.0.0
   '@vinicunca/eslint-config': ^3.4.0
   '@vinicunca/perkakas': ^1.2.3
-  '@vinicunca/unocss-preset': ^1.1.4
+  '@vinicunca/unocss-preset': ^1.7.0
   '@vue/test-utils': ^2.4.6
   '@vueuse/core': ^12.5.0
   '@vueuse/integrations': ^12.5.0
@@ -34,7 +33,6 @@ catalog:
   embla-carousel-wheel-gestures: ^8.0.1
   eslint: ^9.20.1
   fuse.js: ^7.1.0
-  get-port-please: ^3.1.2
   happy-dom: ^17.1.1
   joi: ^17.13.3
   knitwork: ^1.2.0
@@ -45,15 +43,14 @@ catalog:
   ohash: ^1.1.4
   pathe: ^2.0.3
   release-it: ^18.1.2
-  sirv: ^3.0.1
   superstruct: ^2.0.2
   tinyglobby: ^0.2.11
   unplugin: ^2.2.0
-  unplugin-auto-import: ^19.1.0
-  unplugin-vue-components: ^28.4.0
+  unplugin-auto-import: ^19.1.1
+  unplugin-vue-components: ^28.4.1
   valibot: ^0.42.1
   vaul-vue: ^0.3.0
-  vitest: ^3.0.6
+  vitest: ^3.0.7
   vitest-environment-nuxt: ^1.0.1
   vue-tsc: ^2.2.0
   yup: ^1.6.1
@@ -61,6 +58,5 @@ catalog:
 packages:
   - ./
   - docs
-  - devtools
   - playground
   - playground-vue

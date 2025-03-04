@@ -4,17 +4,12 @@ import { genSafeVariableName } from 'knitwork';
 import MagicString from 'magic-string';
 import { resolvePathSync } from 'mlly';
 
-import { join } from 'pathe';
-
-import { globSync } from 'tinyglobby';
-import { runtimeDir } from '../unplugin';
-
 /**
  * This plugin provides the necessary transforms to allow loading the
  * Pohon _Nuxt_ plugins in `src/runtime/plugins/` in a pure Vue environment.
  */
 export default function PluginsPlugin(options: PohonOptions) {
-  const plugins = globSync(['**/*', '!*.d.ts'], { cwd: join(runtimeDir, 'plugins'), absolute: true });
+  const plugins: Array<string> = [];
 
   plugins.unshift(resolvePathSync('../runtime/vue/plugins/head', { extensions: ['.ts', '.mjs', '.js'], url: import.meta.url }));
   if (options.colorMode) {

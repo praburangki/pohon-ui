@@ -1,22 +1,15 @@
-/* eslint-disable node/prefer-global/process */
-import { addCustomTab, startSubprocess } from '@nuxt/devtools-kit';
 import {
   addComponentsDir,
   addImportsDir,
   addPlugin,
-  addVitePlugin,
   createResolver,
   defineNuxtModule,
-  extendPages,
   hasNuxtModule,
   installModule,
 } from '@nuxt/kit';
 import { defu } from 'defu';
-import { getPort } from 'get-port-please';
-import sirv from 'sirv';
 import { defaultOptions, getDefaultPohonConfig, resolveColors } from './defaults';
-import { devtoolsMetaPlugin } from './devtools/meta';
-import { addTemplates, buildTemplates } from './templates';
+import { addTemplates } from './templates';
 
 export type * from './runtime/types';
 
@@ -61,17 +54,6 @@ export interface ModuleOptions {
      */
     transitions?: boolean;
   };
-
-  /**
-   * Configuration for the Pohon devtools.
-   */
-  devtools?: {
-    /**
-     * Enable or disable Pohon devtools.
-     * @defaultValue `true`
-     */
-    enabled?: boolean;
-  };
 }
 
 export default defineNuxtModule<ModuleOptions>({
@@ -105,13 +87,10 @@ export default defineNuxtModule<ModuleOptions>({
     nuxt.options.app.rootAttrs = nuxt.options.app.rootAttrs || {};
     nuxt.options.app.rootAttrs.class = [nuxt.options.app.rootAttrs.class, 'isolate'].filter(Boolean).join(' ');
 
-    const plugin = await import('unocss/vite').then((r) => r.default);
-    addVitePlugin(plugin());
-
     async function registerModule(
       name: string,
       key: string,
-      options: Record<string, any>,
+      options: Record<string, any> = {},
     ) {
       if (!hasNuxtModule(name)) {
         await installModule(name, options);
@@ -121,6 +100,8 @@ export default defineNuxtModule<ModuleOptions>({
     }
 
     await registerModule('@nuxt/icon', 'icon', { cssLayer: 'components' });
+    await registerModule('@unocss/nuxt', 'unocss');
+
     if (options.fonts) {
       await registerModule('@nuxt/fonts', 'fonts', { experimental: { processCSSVariables: true } });
     }
@@ -129,8 +110,6 @@ export default defineNuxtModule<ModuleOptions>({
     }
 
     addPlugin({ src: resolve('./runtime/plugins/colors') });
-    addPlugin({ src: resolve('./runtime/plugins/dialog') });
-    addPlugin({ src: resolve('./runtime/plugins/slideover') });
 
     addComponentsDir({
       path: resolve('./runtime/components'),
@@ -141,84 +120,5 @@ export default defineNuxtModule<ModuleOptions>({
     addImportsDir(resolve('./runtime/composables'));
 
     addTemplates(options, nuxt, resolve);
-
-    if (nuxt.options.dev && nuxt.options.devtools.enabled && options.devtools?.enabled) {
-      const templates = buildTemplates(options);
-      nuxt.options.vite = defu(
-        nuxt.options?.vite,
-        {
-          plugins: [
-            devtoolsMetaPlugin({ resolve, templates, options }),
-          ],
-        },
-      );
-
-      // Runs UI devtools in a subprocess for local development
-      if (process.env.NUXT_POHON_DEVTOOLS_LOCAL) {
-        const PORT = await getPort({ port: 42124 });
-        nuxt.hook('app:resolve', () => {
-          startSubprocess(
-            {
-              command: 'pnpm',
-              args: ['nuxi', 'dev'],
-              cwd: './devtools',
-              stdio: 'pipe',
-              env: {
-                PORT: PORT.toString(),
-              },
-            },
-            {
-              id: 'pohon:devtools:local',
-              name: 'Nuxt Pohon DevTools Local',
-              icon: 'logos-nuxt-icon',
-            },
-            nuxt,
-          );
-        });
-
-        nuxt.hook('vite:extendConfig', (config) => {
-          config.server ||= {};
-          config.server.proxy ||= {};
-          config.server.proxy['/__nuxt_pohon__/devtools'] = {
-            target: `http://localhost:${PORT}`,
-            changeOrigin: true,
-            followRedirects: true,
-            ws: true,
-            rewriteWsOrigin: true,
-          };
-        });
-      } else {
-        nuxt.hook('vite:serverCreated', async (server) => {
-          server.middlewares.use('/__nuxt_pohon__/devtools', sirv(resolve('../dist/client/devtools'), {
-            single: true,
-            dev: true,
-          }));
-        });
-      }
-
-      nuxt.options.routeRules = defu(nuxt.options.routeRules, { '/__nuxt_pohon__/**': { ssr: false } });
-      extendPages((pages) => {
-        if (pages.length) {
-          pages.unshift({
-            name: 'pohon-devtools',
-            path: '/__nuxt_pohon__/components/:slug',
-            file: resolve('./devtools/runtime/devtools-renderer.vue'),
-            meta: {
-              layout: false,
-            },
-          });
-        }
-      });
-
-      addCustomTab({
-        name: 'nuxt-pohon',
-        title: 'Nuxt Pohon',
-        icon: '/__nuxt_pohon__/devtools/favicon.svg',
-        view: {
-          type: 'iframe',
-          src: '/__nuxt_pohon__/devtools',
-        },
-      });
-    }
   },
 });

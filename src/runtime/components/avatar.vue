@@ -3,7 +3,6 @@ import type { AppConfig } from '@nuxt/schema';
 import type { VariantProps } from 'unocss-variants';
 import appConfig_ from '#build/app.config';
 import avatarTheme from '#build/pohon/avatar';
-import { extendDevtoolsMeta } from '../composables/extend-devtools-meta';
 import { uv } from '../utils/uv';
 
 const appConfigAvatar = appConfig_ as AppConfig & { pohon: { avatar: Partial<typeof avatarTheme> } };
@@ -33,8 +32,6 @@ export interface AvatarProps {
 export interface AvatarSlots {
   default: (props?: object) => any;
 }
-
-extendDevtoolsMeta<AvatarProps>({ defaultProps: { src: 'https://avatars.githubusercontent.com/u/8610935?v=4', alt: 'Prabu Rangki' } });
 </script>
 
 <script lang="ts" setup>

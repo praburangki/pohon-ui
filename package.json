@@ -2,7 +2,7 @@
   "name": "@vinicunca/pohon",
   "type": "module",
   "version": "1.0.0-alpha.1",
-  "packageManager": "pnpm@10.4.1",
+  "packageManager": "pnpm@10.5.2",
   "description": "UI Library, powered by Vue & UnoCSS.",
   "license": "MIT",
   "homepage": "https://pohon.vinicunca.dev",
@@ -45,7 +45,14 @@
     "./vue-plugin": {
       "types": "./vue-plugin.d.ts"
     },
+    "./unocss-preset": {
+      "types": "./dist/unocss-preset.d.ts",
+      "import": "./dist/unocss-preset.mjs",
+      "require": "./dist/unocss-preset.cjs"
+    },
     "./runtime/*": "./dist/runtime/*",
+    "./components/*": "./dist/runtime/components/*",
+    "./composables/*": "./dist/runtime/composables/*",
     "./utils/*": {
       "types": "./dist/runtime/utils/*.d.ts",
       "import": "./dist/runtime/utils/*.js"
@@ -58,6 +65,7 @@
   "imports": {
     "#build/pohon/*": "./.nuxt/pohon/*.ts"
   },
+  "style": "./dist/runtime/index.css",
   "main": "./dist/module.cjs",
   "types": "./dist/types.d.ts",
   "files": [
@@ -66,21 +74,18 @@
     "vue-plugin.d.ts"
   ],
   "scripts": {
-    "build": "nuxt-module-build build && pnpm devtools:build",
+    "build": "nuxt-module-build build",
     "prepack": "pnpm build",
     "dev": "DEV=true nuxi dev playground",
     "dev:vue": "DEV=true vite playground-vue",
     "dev:build": "nuxi build playground",
-    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground && nuxi prepare docs && nuxi prepare devtools && vite build playground-vue",
-    "devtools": "NUXT_UI_DEVTOOLS_LOCAL=true nuxi dev playground",
-    "devtools:build": "nuxi generate devtools",
-    "devtools:prepare": "DEVTOOLS=true nuxt-component-meta playground --outputDir ../src/devtools/.component-meta/",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground && nuxi prepare docs && vite build playground-vue",
     "docs": "DEV=true nuxi dev docs",
     "docs:build": "nuxi build docs",
     "docs:prepare": "nuxt-component-meta docs",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "typecheck": "vue-tsc --noEmit && nuxi typecheck playground && nuxi typecheck docs && nuxi typecheck devtools && cd playground-vue && vue-tsc --noEmit",
+    "typecheck": "vue-tsc --noEmit && nuxi typecheck playground && nuxi typecheck docs && cd playground-vue && vue-tsc --noEmit",
     "test": "vitest",
     "test:vue": "vitest -c vitest.vue.config.ts",
     "test:vue:build": "vite build playground-vue",
@@ -93,7 +98,6 @@
     "@iconify/vue": "catalog:",
     "@internationalized/date": "catalog:",
     "@internationalized/number": "catalog:",
-    "@nuxt/devtools-kit": "catalog:",
     "@nuxt/fonts": "catalog:",
     "@nuxt/icon": "catalog:",
     "@nuxt/kit": "catalog:",
@@ -101,6 +105,7 @@
     "@nuxtjs/color-mode": "catalog:",
     "@tanstack/vue-table": "catalog:",
     "@unhead/vue": "catalog:",
+    "@unocss/nuxt": "^66.1.0-beta.3",
     "@vinicunca/akar": "catalog:",
     "@vinicunca/perkakas": "catalog:",
     "@vueuse/core": "catalog:",
@@ -116,14 +121,14 @@
     "embla-carousel-vue": "catalog:",
     "embla-carousel-wheel-gestures": "catalog:",
     "fuse.js": "catalog:",
-    "get-port-please": "catalog:",
     "knitwork": "catalog:",
     "magic-string": "catalog:",
     "mlly": "catalog:",
     "ohash": "catalog:",
     "pathe": "catalog:",
-    "sirv": "catalog:",
     "tinyglobby": "catalog:",
+    "unocss": "^66.1.0-beta.3",
+    "unocss-variants": "1.0.0-alpha.1",
     "unplugin": "catalog:",
     "unplugin-auto-import": "catalog:",
     "unplugin-vue-components": "catalog:",
@@ -135,7 +140,6 @@
     "@release-it/conventional-changelog": "catalog:",
     "@standard-schema/spec": "catalog:",
     "@vinicunca/eslint-config": "catalog:",
-    "@vinicunca/unocss-preset": "catalog:",
     "@vue/test-utils": "catalog:",
     "embla-carousel": "catalog:",
     "eslint": "catalog:",
@@ -145,7 +149,6 @@
     "nuxt-component-meta": "catalog:",
     "release-it": "catalog:",
     "superstruct": "catalog:",
-    "unocss": "^66.0.0",
     "valibot": "catalog:",
     "vitest": "catalog:",
     "vitest-environment-nuxt": "catalog:",
@@ -156,6 +159,12 @@
   "pnpm": {
     "onlyBuiltDependencies": [
       "better-sqlite3"
+    ],
+    "ignoredBuiltDependencies": [
+      "@parcel/watcher",
+      "esbuild",
+      "vue-demi",
+      "workerd"
     ]
   },
   "resolutions": {

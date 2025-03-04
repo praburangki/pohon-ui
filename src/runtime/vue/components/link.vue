@@ -1,9 +1,7 @@
 <script lang="ts">
-import type { AppConfig } from '@nuxt/schema';
 import type { ButtonHTMLAttributes } from 'vue';
 import type { RouteLocationRaw, RouterLinkProps } from 'vue-router';
-import _appConfig from '#build/app.config';
-import theme from '#build/pohon/link';
+import { isString } from '@vinicunca/perkakas';
 
 interface NuxtLinkProps extends Omit<RouterLinkProps, 'to'> {
   /**
@@ -84,7 +82,10 @@ export interface LinkSlots {
 }
 </script>
 
-<script setup lang="ts">
+<script lang="ts" setup>
+import type { AppConfig } from '@nuxt/schema';
+import appConfig_ from '#build/app.config';
+import linkTheme from '#build/pohon/link';
 import { useRoute } from '#imports';
 import { reactiveOmit } from '@vueuse/core';
 import { diff, isEqual } from 'ohash';
@@ -96,19 +97,25 @@ import { RouterLink } from 'vue-router';
 
 defineOptions({ inheritAttrs: false });
 
-const props = withDefaults(defineProps<LinkProps>(), {
-  as: 'button',
-  type: 'button',
-  active: undefined,
-  activeClass: '',
-  inactiveClass: '',
-});
+const props = withDefaults(
+  defineProps<LinkProps>(),
+  {
+    as: 'button',
+    type: 'button',
+    active: undefined,
+    activeClass: '',
+    inactiveClass: '',
+  },
+);
 
 defineSlots<LinkSlots>();
 
-const appConfigLink = _appConfig as AppConfig & { ui: { link: Partial<typeof theme> } };
+const appConfigLink = appConfig_ as AppConfig & { pohon: { link: Partial<typeof linkTheme> } };
 
-const link = uv({ extend: uv(theme), ...(appConfigLink.ui?.link || {}) });
+const linkUv = uv({
+  extend: uv(linkTheme),
+  ...(appConfigLink.pohon?.link || {}),
+});
 
 // Check if vue-router is available by checking for the injection key
 const hasRouter = computed(() => {
@@ -128,10 +135,12 @@ const route = computed(() => {
   }
 });
 
-const routerLinkProps = useForwardProps(reactiveOmit(props, 'as', 'type', 'disabled', 'active', 'exact', 'exactQuery', 'exactHash', 'activeClass', 'inactiveClass', 'to', 'raw', 'class'));
+const routerLinkProps = useForwardProps(
+  reactiveOmit(props, 'as', 'type', 'disabled', 'active', 'exact', 'exactQuery', 'exactHash', 'activeClass', 'inactiveClass', 'to', 'raw', 'class'),
+);
 
 const pohon = computed(() => uv({
-  extend: link,
+  extend: linkUv,
   variants: {
     active: {
       true: props.activeClass,
@@ -147,6 +156,7 @@ function isPartiallyEqual(item1: any, item2: any) {
     }
     return filtered;
   }, [] as Array<string>);
+
   return isEqual(item1, item2, { excludeKeys: (key) => diffedKeys.includes(key) });
 }
 
@@ -154,7 +164,8 @@ const isExternal = computed(() => {
   if (!props.to) {
     return false;
   }
-  return typeof props.to === 'string' && hasProtocol(props.to, { acceptRelative: true });
+
+  return isString(props.to) && hasProtocol(props.to, { acceptRelative: true });
 });
 
 function isLinkActive({ route: linkRoute, isActive, isExactActive }: any) {
@@ -187,25 +198,19 @@ function isLinkActive({ route: linkRoute, isActive, isExactActive }: any) {
   return !props.exact && isActive;
 }
 
-function resolveLinkClass({ route, isActive, isExactActive }: any) {
+function resolveLinkClass({ route, isActive, isExactActive }: any = {}) {
   const active = isLinkActive({ route, isActive, isExactActive });
 
   if (props.raw) {
-  return pohon.value({ class: props.class, active, disabled: props.disabled });
-}
-
-// Handle navigation without vue-router
-function handleNavigation(href: string) {
-  if (isExternal.value) {
-    window.location.href = href;
-  } else {
-    window.location.pathname = href;
+    return [props.class, active ? props.activeClass : props.inactiveClass];
   }
+
+  return pohon.value({ class: props.class, active, disabled: props.disabled });
 }
 </script>
 
 <template>
-  <template v-if="hasRouter">
+  <template v-if="hasRouter && !isExternal">
     <RouterLink
       v-slot="{ href, navigate, route: linkRoute, isActive, isExactActive }"
       v-bind="routerLinkProps"
@@ -219,26 +224,27 @@ function handleNavigation(href: string) {
             as,
             type,
             disabled,
-            href: to ? (isExternal ? to as string : href) : undefined,
+            href: to ? href : undefined,
             navigate,
             active: isLinkActive({ route: linkRoute, isActive, isExactActive }),
           }"
         />
       </template>
-      <ULinkBase
+
+      <PLinkBase
         v-else
         v-bind="{
           ...$attrs,
           as,
           type,
           disabled,
-          href: to ? (isExternal ? to as string : href) : undefined,
+          href: to ? href : undefined,
           navigate,
         }"
         :class="resolveLinkClass({ route: linkRoute, isActive, isExactActive })"
       >
         <slot :active="isLinkActive({ route: linkRoute, isActive, isExactActive })" />
-      </ULinkBase>
+      </PLinkBase>
     </RouterLink>
   </template>
 
@@ -251,12 +257,13 @@ function handleNavigation(href: string) {
           type,
           disabled,
           href: to,
-          navigate: () => to && handleNavigation(to as string),
+          target: isExternal ? '_blank' : undefined,
           active: false,
         }"
       />
     </template>
-    <ULinkBase
+
+    <PLinkBase
       v-else
       v-bind="{
         ...$attrs,
@@ -264,11 +271,12 @@ function handleNavigation(href: string) {
         type,
         disabled,
         href: (to as string),
+        target: isExternal ? '_blank' : undefined,
       }"
-      :class="pohon({ class: props.class, disabled })"
-      @click="to && handleNavigation(to as string)"
+      :is-external="isExternal"
+      :class="resolveLinkClass()"
     >
       <slot :active="false" />
-    </ULinkBase>
+    </PLinkBase>
   </template>
 </template>

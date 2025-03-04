@@ -1,5 +1,10 @@
 import { vinicuncaESLint } from '@vinicunca/eslint-config';
 
 export default vinicuncaESLint(
-
+  {
+    rules: {
+      'import/first': 'off',
+      'import/order': 'off',
+    },
+  },
 );

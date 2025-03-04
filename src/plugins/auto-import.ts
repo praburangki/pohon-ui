@@ -15,7 +15,10 @@ export default function AutoImportPlugin(options: PohonOptions, meta: UnpluginCo
     options.autoImport,
     <AutoImportOptions>{
       dts: options.dts ?? true,
-      dirs: [join(runtimeDir, 'composables')],
+      dirs: [
+        join(runtimeDir, 'composables'),
+        join(runtimeDir, 'vue/composables'),
+      ],
     },
   );
 

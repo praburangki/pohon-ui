@@ -3,7 +3,6 @@ import type { AppConfig } from '@nuxt/schema';
 import type { VariantProps } from 'unocss-variants';
 import appConfig_ from '#build/app.config';
 import theme from '#build/pohon/avatar-group';
-import { extendDevtoolsMeta } from '../composables/extend-devtools-meta';
 import { uv } from '../utils/uv';
 
 const appConfigAvatarGroup = appConfig_ as AppConfig & { pohon: { avatarGroup: Partial<typeof theme> } };
@@ -33,8 +32,6 @@ export interface AvatarGroupProps {
 export interface AvatarGroupSlots {
   default: (props?: object) => any;
 }
-
-extendDevtoolsMeta({ example: 'AvatarGroupExample' });
 </script>
 
 <script setup lang="ts">

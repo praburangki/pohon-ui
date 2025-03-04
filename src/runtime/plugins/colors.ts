@@ -17,7 +17,7 @@ export default defineNuxtPlugin(() => {
   function generateShades(key: string, value: string) {
     return shades.map((shade) => {
       const colorValue = value === 'neutral' ? 'old-neutral' : value;
-      return `--pohon-color-${key}-${shade}: var(--color-${colorValue}-${shade});`;
+      return `--pohon-color-${key}-${shade}: var(--colors-${colorValue}-${shade});`;
     }).join('\n  ');
   }
   function generateColor(key: string, shade: number) {

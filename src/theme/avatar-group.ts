@@ -1,36 +1,36 @@
 export default {
   slots: {
-    root: 'inline-flex flex-row-reverse justify-end',
-    base: 'relative rounded-full ring-(--ui-bg) first:me-0',
+    root: '',
+    base: '',
   },
   variants: {
     size: {
       '3xs': {
-        base: 'ring -me-0.5',
+        base: '',
       },
       '2xs': {
-        base: 'ring -me-0.5',
+        base: '',
       },
       'xs': {
-        base: 'ring -me-0.5',
+        base: '',
       },
       'sm': {
-        base: 'ring-2 -me-1.5',
+        base: '',
       },
       'md': {
-        base: 'ring-2 -me-1.5',
+        base: '',
       },
       'lg': {
-        base: 'ring-2 -me-1.5',
+        base: '',
       },
       'xl': {
-        base: 'ring-3 -me-2',
+        base: '',
       },
       '2xl': {
-        base: 'ring-3 -me-2',
+        base: '',
       },
       '3xl': {
-        base: 'ring-3 -me-2',
+        base: '',
       },
     },
   },

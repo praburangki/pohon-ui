@@ -3,6 +3,9 @@ import { defineConfig } from 'vite';
 
 import PohonPlugin from '../src/vite';
 
+import { avatarTheme } from './src/themes/avatar';
+import { avatarGroupTheme } from './src/themes/avatar-group';
+
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
@@ -18,6 +21,8 @@ export default defineConfig({
           primary: 'green',
           neutral: 'slate',
         },
+        avatar: avatarTheme,
+        avatarGroup: avatarGroupTheme,
       },
       components: {
         dirs: ['../playground/app/components'],
