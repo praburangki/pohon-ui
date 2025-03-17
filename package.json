@@ -2,7 +2,7 @@
   "name": "@vinicunca/pohon",
   "type": "module",
   "version": "1.0.0-alpha.1",
-  "packageManager": "pnpm@10.5.2",
+  "packageManager": "pnpm@10.6.3",
   "description": "UI Library, powered by Vue & UnoCSS.",
   "license": "MIT",
   "homepage": "https://pohon.vinicunca.dev",
@@ -78,6 +78,7 @@
     "test": "vitest",
     "test:vue": "vitest -c vitest.vue.config.ts",
     "test:vue:build": "vite build playground-vue",
+    "update:deps": "pnpx taze major -wIr",
     "release": "release-it --preRelease=alpha --npm.tag=next"
   },
   "peerDependencies": {
@@ -94,7 +95,7 @@
     "@nuxtjs/color-mode": "catalog:",
     "@tanstack/vue-table": "catalog:",
     "@unhead/vue": "catalog:",
-    "@unocss/nuxt": "^66.1.0-beta.3",
+    "@unocss/nuxt": "catalog:",
     "@vinicunca/akar": "catalog:",
     "@vinicunca/perkakas": "catalog:",
     "@vueuse/core": "catalog:",
@@ -116,8 +117,8 @@
     "ohash": "catalog:",
     "pathe": "catalog:",
     "tinyglobby": "catalog:",
-    "unocss": "^66.1.0-beta.3",
-    "unocss-variants": "1.0.0-alpha.1",
+    "unocss": "catalog:",
+    "unocss-variants": "catalog:",
     "unplugin": "catalog:",
     "unplugin-auto-import": "catalog:",
     "unplugin-vue-components": "catalog:",
@@ -144,17 +145,6 @@
     "vue-tsc": "catalog:",
     "yup": "catalog:",
     "zod": "catalog:"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "better-sqlite3"
-    ],
-    "ignoredBuiltDependencies": [
-      "@parcel/watcher",
-      "esbuild",
-      "vue-demi",
-      "workerd"
-    ]
   },
   "resolutions": {
     "@vinicunca/pohon": "workspace:*",

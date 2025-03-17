@@ -9,17 +9,17 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@vinicunca/pohon": "latest",
-    "vue": "^3.5.13",
-    "vue-router": "^4.5.0"
+    "@vinicunca/pohon": "catalog:",
+    "vue": "catalog:",
+    "vue-router": "catalog:"
   },
   "devDependencies": {
     "@vinicunca/unocss-preset": "catalog:",
-    "@vitejs/plugin-vue": "^5.2.1",
-    "typescript": "^5.7.2",
+    "@vitejs/plugin-vue": "catalog:",
+    "typescript": "catalog:",
     "unplugin-auto-import": "catalog:",
     "unplugin-vue-components": "catalog:",
-    "vite": "^6.0.11",
+    "vite": "catalog:",
     "vue-tsc": "catalog:"
   }
 }

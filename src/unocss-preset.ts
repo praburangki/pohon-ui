@@ -1,4 +1,4 @@
-import type { Theme } from '@unocss/preset-wind4';
+import type { Theme } from '@unocss/preset-wind3';
 import type { PohonOptions } from './unplugin';
 import { definePreset, LAYER_IMPORTS } from '@unocss/core';
 
