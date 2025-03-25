@@ -3,15 +3,15 @@ import type { ModuleOptions } from '../module';
 
 export default (options: Required<ModuleOptions>) => ({
   slots: {
-    root: 'relative overflow-hidden w-full rounded-[calc(var(--ui-radius)*2)] p-4 flex gap-2.5',
-    wrapper: 'min-w-0 flex-1 flex flex-col',
-    title: 'text-sm font-medium',
-    description: 'text-sm opacity-90',
-    icon: 'shrink-0 size-5',
-    avatar: 'shrink-0',
-    avatarSize: '2xl',
-    actions: 'flex flex-wrap gap-1.5 shrink-0',
-    close: 'p-0',
+    root: '',
+    wrapper: '',
+    title: '',
+    description: '',
+    icon: '',
+    avatar: '',
+    avatarSize: '',
+    actions: '',
+    close: '',
   },
   variants: {
     color: {
@@ -26,17 +26,17 @@ export default (options: Required<ModuleOptions>) => ({
     },
     orientation: {
       horizontal: {
-        root: 'items-center',
-        actions: 'items-center',
+        root: '',
+        actions: '',
       },
       vertical: {
-        root: 'items-start',
-        actions: 'items-start mt-2.5',
+        root: '',
+        actions: '',
       },
     },
     title: {
       true: {
-        description: 'mt-1',
+        description: '',
       },
     },
   },
@@ -44,49 +44,49 @@ export default (options: Required<ModuleOptions>) => ({
     color,
     variant: 'solid',
     class: {
-      root: `bg-(--ui-${color}) text-(--ui-bg)`,
+      root: '',
     },
   })), ...(options.theme.colors || []).map((color: string) => ({
     color,
     variant: 'outline',
     class: {
-      root: `text-(--ui-${color}) ring ring-inset ring-(--ui-${color})/25`,
+      root: '',
     },
   })), ...(options.theme.colors || []).map((color: string) => ({
     color,
     variant: 'soft',
     class: {
-      root: `bg-(--ui-${color})/10 text-(--ui-${color})`,
+      root: '',
     },
   })), ...(options.theme.colors || []).map((color: string) => ({
     color,
     variant: 'subtle',
     class: {
-      root: `bg-(--ui-${color})/10 text-(--ui-${color}) ring ring-inset ring-(--ui-${color})/25`,
+      root: '',
     },
   })), {
     color: 'neutral',
     variant: 'solid',
     class: {
-      root: 'text-(--ui-bg) bg-(--ui-bg-inverted)',
+      root: '',
     },
   }, {
     color: 'neutral',
     variant: 'outline',
     class: {
-      root: 'text-(--ui-text-highlighted) bg-(--ui-bg) ring ring-inset ring-(--ui-border)',
+      root: '',
     },
   }, {
     color: 'neutral',
     variant: 'soft',
     class: {
-      root: 'text-(--ui-text-highlighted) bg-(--ui-bg-elevated)/50',
+      root: '',
     },
   }, {
     color: 'neutral',
     variant: 'subtle',
     class: {
-      root: 'text-(--ui-text-highlighted) bg-(--ui-bg-elevated)/50 ring ring-inset ring-(--ui-border-accented)',
+      root: '',
     },
   }],
   defaultVariants: {

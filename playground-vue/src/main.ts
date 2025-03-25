@@ -3,7 +3,6 @@ import { createApp, defineAsyncComponent, ref } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
 import App from './app.vue';
 import 'uno.css';
-import './styles.css';
 
 const pages = import.meta.glob('../../playground/app/pages/**/*.vue');
 const components = import.meta.glob('../../playground/app/components/**/*.vue');

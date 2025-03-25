@@ -11,3 +11,7 @@ export type DeepPartial<T, O = any> = {
 } & {
   [key: string]: O | TightMap<O>;
 };
+
+export type GetObjectField<MaybeObject, Key extends string> = MaybeObject extends Record<string, any>
+  ? MaybeObject[Key]
+  : never;

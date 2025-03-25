@@ -3,8 +3,12 @@ import { defineConfig } from 'vite';
 
 import PohonPlugin from '../src/vite';
 
-import { avatarTheme } from './src/themes/avatar';
-import { avatarGroupTheme } from './src/themes/avatar-group';
+import {
+  avatarGroupTheme,
+  avatarTheme,
+  badgeTheme,
+  cardTheme,
+} from './src/themes';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -23,6 +27,8 @@ export default defineConfig({
         },
         avatar: avatarTheme,
         avatarGroup: avatarGroupTheme,
+        badge: badgeTheme,
+        card: cardTheme,
       },
       components: {
         dirs: ['../playground/app/components'],

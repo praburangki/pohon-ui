@@ -1,4 +1,4 @@
-export default {
+const apa = {
   slots: {
     root: '',
     image: '',
@@ -39,4 +39,11 @@ export default {
   defaultVariants: {
     size: 'md',
   },
-};
+} as const;
+
+export type AvatarSlots = typeof apa.slots;
+export type AvatarVariants = typeof apa.variants;
+export type AvatarTheme = typeof apa;
+export type AvatarSize = keyof typeof apa.variants.size;
+
+export default apa;

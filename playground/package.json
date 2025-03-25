@@ -8,9 +8,9 @@
     "generate": "nuxi generate"
   },
   "dependencies": {
-    "@iconify-json/lucide": "^1.2.30",
-    "@iconify-json/simple-icons": "^1.2.28",
-    "@vinicunca/pohon": "latest",
+    "@iconify-json/lucide": "catalog:",
+    "@iconify-json/simple-icons": "catalog:",
+    "@vinicunca/pohon": "catalog:",
     "nuxt": "catalog:"
   }
 }

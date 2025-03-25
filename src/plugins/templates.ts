@@ -25,7 +25,8 @@ export default function TemplatePlugin(
     loadInclude: (id) => templateKeys.has(id.replace('virtual:nuxt-pohon-templates/', '#build/')),
     load(id) {
       id = id.replace('virtual:nuxt-pohon-templates/', '#build/');
-      return templates.find((t) => `#build/${t.filename}` === id)!.getContents!({} as any);
+      const content = templates.find((t) => `#build/${t.filename}` === id)!.getContents!({} as any);
+      return content;
     },
   } satisfies UnpluginOptions;
 }

@@ -8,6 +8,7 @@ export interface LinkBaseProps {
   navigate?: (event: MouseEvent) => void;
   rel?: string;
   target?: string;
+  active?: boolean;
   isExternal?: boolean;
 }
 </script>

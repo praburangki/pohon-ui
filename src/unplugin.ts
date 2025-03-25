@@ -20,7 +20,7 @@ import ComponentImportPlugin from './plugins/components';
 import NuxtEnvironmentPlugin from './plugins/nuxt-environment';
 import PluginsPlugin from './plugins/plugins';
 import TemplatePlugin from './plugins/templates';
-import { presetPohon } from './unocss-preset';
+import { presetPohon } from './unocss/unocss-preset';
 
 type NeutralColor = 'slate' | 'gray' | 'zinc' | 'neutral' | 'stone';
 type Color = Exclude<keyof typeof colors, 'inherit' | 'current' | 'transparent' | 'black' | 'white' | NeutralColor> | (string & {});
@@ -75,6 +75,8 @@ export const PohonPlugin = createUnplugin<PohonOptions | undefined>((options_ = 
       presets: [
         presetPohon(appConfig.pohon),
       ],
+
+      outputToCssLayers: true,
     }),
     PluginsPlugin(options),
     TemplatePlugin(options, appConfig),

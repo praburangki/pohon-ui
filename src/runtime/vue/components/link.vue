@@ -102,6 +102,7 @@ const props = withDefaults(
   {
     as: 'button',
     type: 'button',
+    ariaCurrentValue: 'page',
     active: undefined,
     activeClass: '',
     inactiveClass: '',
@@ -221,6 +222,7 @@ function resolveLinkClass({ route, isActive, isExactActive }: any = {}) {
         <slot
           v-bind="{
             ...$attrs,
+            ...(exact && isExactActive ? { 'aria-current': ariaCurrentValue } : {}),
             as,
             type,
             disabled,
@@ -235,6 +237,7 @@ function resolveLinkClass({ route, isActive, isExactActive }: any = {}) {
         v-else
         v-bind="{
           ...$attrs,
+          ...(exact && isExactActive ? { 'aria-current': ariaCurrentValue } : {}),
           as,
           type,
           disabled,

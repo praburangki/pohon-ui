@@ -5,7 +5,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
 </script>
 
 <template>
-  <div class="flex flex-col gap-2 items-center shadow-md">
+  <div class="flex flex-col gap-2 items-center">
     <div class="flex items-center gap-1.5">
       <PAvatar
         v-for="size in sizes"

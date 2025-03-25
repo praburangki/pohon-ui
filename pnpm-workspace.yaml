@@ -4,6 +4,8 @@ packages:
   - playground
   - playground-vue
 catalog:
+  '@iconify-json/lucide': ^1.2.30
+  '@iconify-json/simple-icons': ^1.2.28
   '@iconify/vue': ^4.3.0
   '@internationalized/date': ^3.7.0
   '@internationalized/number': ^3.6.0
