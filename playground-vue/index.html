@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pohon UI ❤️ Vue</title>
   </head>
+  <style>
+@property --un-ring-offset-width {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
+.ring {
+  --un-ring-shadow: var(--un-ring-inset,) 0 0 0 calc(1px + var(--un-ring-offset-width)) var(--un-ring-color, currentColor);
+  box-shadow: var(--un-inset-shadow), var(--un-inset-ring-shadow), var(--un-ring-offset-shadow), var(--un-ring-shadow), var(--un-shadow);
+}
+
+  </style>
   <body>
     <div id="app" class="isolate"></div>
     <script type="module" src="/src/main.ts"></script>

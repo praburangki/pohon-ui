@@ -2,8 +2,8 @@ export const avatarTheme = {
   slots: {
     root: 'inline-flex items-center justify-center shrink-0 select-none overflow-hidden rounded-full align-middle bg-$pohon-bg-elevated',
     image: 'h-full w-full rounded-inherit object-cover',
-    fallback: 'font-medium leading-none text-$pohon-text-muted truncate',
-    icon: 'text-$pohon-text-muted shrink-0',
+    fallback: 'font-medium leading-none color-$pohon-text-muted truncate',
+    icon: 'color-$pohon-text-muted shrink-0',
   },
   variants: {
     size: {

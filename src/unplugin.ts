@@ -9,7 +9,6 @@ import type icons from './theme/icons';
 import { fileURLToPath } from 'node:url';
 import { defu } from 'defu';
 import { normalize } from 'pathe';
-
 import UnoCss from 'unocss/vite';
 import { createUnplugin } from 'unplugin';
 
@@ -75,8 +74,6 @@ export const PohonPlugin = createUnplugin<PohonOptions | undefined>((options_ = 
       presets: [
         presetPohon(appConfig.pohon),
       ],
-
-      outputToCssLayers: true,
     }),
     PluginsPlugin(options),
     TemplatePlugin(options, appConfig),

@@ -1,6 +1,6 @@
 import vue from '@vitejs/plugin-vue';
+import UnoCss from 'unocss/vite';
 import { defineConfig } from 'vite';
-
 import PohonPlugin from '../src/vite';
 
 import {
@@ -34,6 +34,7 @@ export default defineConfig({
         dirs: ['../playground/app/components'],
       },
     }),
+    UnoCss(),
   ],
   optimizeDeps: {
     // prevents reloading page when navigating between components
