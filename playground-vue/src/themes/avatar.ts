@@ -1,3 +1,5 @@
+// @unocss-include
+
 export const avatarTheme = {
   slots: {
     root: 'inline-flex items-center justify-center shrink-0 select-none overflow-hidden rounded-full align-middle bg-$pohon-bg-elevated',

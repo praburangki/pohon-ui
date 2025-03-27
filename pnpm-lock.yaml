@@ -64,8 +64,8 @@ catalogs:
       specifier: ^3.10.0
       version: 3.10.0
     '@vinicunca/perkakas':
-      specifier: ^1.4.0
-      version: 1.4.0
+      specifier: ^1.5.0
+      version: 1.5.0
     '@vinicunca/unocss-preset':
       specifier: ^1.12.0
       version: 1.12.0
@@ -163,8 +163,8 @@ catalogs:
       specifier: ^66.1.0-beta.7
       version: 66.1.0-beta.7
     unocss-variants:
-      specifier: 1.0.0-alpha.1
-      version: 1.0.0-alpha.1
+      specifier: 1.0.0-alpha.2
+      version: 1.0.0-alpha.2
     unplugin-auto-import:
       specifier: ^19.1.1
       version: 19.1.1
@@ -248,7 +248,7 @@ importers:
         version: 1.0.0(typescript@5.6.3)(vue@3.5.13(typescript@5.6.3))
       '@vinicunca/perkakas':
         specifier: 'catalog:'
-        version: 1.4.0
+        version: 1.5.0
       '@vueuse/core':
         specifier: 'catalog:'
         version: 13.0.0(vue@3.5.13(typescript@5.6.3))
@@ -314,7 +314,7 @@ importers:
         version: 66.1.0-beta.7(@unocss/webpack@66.1.0-beta.7(webpack@5.98.0))(postcss@8.5.3)(vite@6.2.2(@types/node@22.13.5)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.6.3))
       unocss-variants:
         specifier: 'catalog:'
-        version: 1.0.0-alpha.1
+        version: 1.0.0-alpha.2
       unplugin:
         specifier: ^2.2.0
         version: 2.2.0
@@ -345,7 +345,7 @@ importers:
         version: 3.10.0(@typescript-eslint/utils@8.28.0(eslint@9.22.0(jiti@2.4.2))(typescript@5.6.3))(@vue/compiler-sfc@3.5.13)(eslint@9.22.0(jiti@2.4.2))(typescript@5.6.3)(vitest@3.0.8(@types/debug@4.1.12)(@types/node@22.13.5)(happy-dom@17.4.4)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.0))
       '@vinicunca/unocss-preset':
         specifier: 'catalog:'
-        version: 1.12.0(@vinicunca/perkakas@1.4.0)(unocss@66.1.0-beta.7(@unocss/webpack@66.1.0-beta.7(webpack@5.98.0))(postcss@8.5.3)(vite@6.2.2(@types/node@22.13.5)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.6.3)))
+        version: 1.12.0(@vinicunca/perkakas@1.5.0)(unocss@66.1.0-beta.7(@unocss/webpack@66.1.0-beta.7(webpack@5.98.0))(postcss@8.5.3)(vite@6.2.2(@types/node@22.13.5)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.6.3)))
       '@vue/test-utils':
         specifier: 'catalog:'
         version: 2.4.6
@@ -421,7 +421,7 @@ importers:
     devDependencies:
       '@vinicunca/unocss-preset':
         specifier: 'catalog:'
-        version: 1.12.0(@vinicunca/perkakas@1.4.0)(unocss@66.1.0-beta.7(@unocss/webpack@66.1.0-beta.7(webpack@5.98.0))(postcss@8.5.3)(vite@6.2.2(@types/node@22.13.5)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.8.2)))
+        version: 1.12.0(@vinicunca/perkakas@1.5.0)(unocss@66.1.0-beta.7(@unocss/webpack@66.1.0-beta.7(webpack@5.98.0))(postcss@8.5.3)(vite@6.2.2(@types/node@22.13.5)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.8.2)))
       '@vitejs/plugin-vue':
         specifier: 'catalog:'
         version: 5.2.2(vite@6.2.2(@types/node@22.13.5)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.8.2))
@@ -2350,8 +2350,8 @@ packages:
       svelte-eslint-parser:
         optional: true
 
-  '@vinicunca/perkakas@1.4.0':
-    resolution: {integrity: sha512-APmLBUkZogma1ULyuzfauMnAuCgbYISWVPMlkYUetFWzDzO+8yMCBED1S5FLGtJG7EbCoOrA6lWK3Pb2mTal9Q==}
+  '@vinicunca/perkakas@1.5.0':
+    resolution: {integrity: sha512-PjRq492nzlt/XHQGov4WrcGk7/DEZy4oPtZWYfKhhHM+PHKTTajn/bduFK4dG0y8DHp6Srhvk6HSWlscXgdOow==}
     engines: {node: '>=20.0.0'}
 
   '@vinicunca/unocss-preset@1.12.0':
@@ -6385,10 +6385,6 @@ packages:
     resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
     engines: {node: '>=12.20'}
 
-  type-fest@4.35.0:
-    resolution: {integrity: sha512-2/AwEFQDFEy30iOLjrvHDIH7e4HEWH+f1Yl1bI5XMqzuoCUqwYCdxachgsgv0og/JdVZUhbfjcJAoHj5L1753A==}
-    engines: {node: '>=16'}
-
   type-fest@4.37.0:
     resolution: {integrity: sha512-S/5/0kFftkq27FPNye0XM1e2NsnoD/3FS+pBmbjmmtLT6I+i344KoOf7pvXreaFsDamWeaJX55nczA1m5PsBDg==}
     engines: {node: '>=16'}
@@ -6516,8 +6512,8 @@ packages:
     resolution: {integrity: sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==}
     engines: {node: '>= 10.0.0'}
 
-  unocss-variants@1.0.0-alpha.1:
-    resolution: {integrity: sha512-2VkrVU+uYak0OEhT/D0NgO/HRMQeCIAMqcqOmyaP474XD2aqfHVfTsN/iFQt6gGdeABU+KHzim4FrAC1iTGZ9g==}
+  unocss-variants@1.0.0-alpha.2:
+    resolution: {integrity: sha512-QgWdJtw8DguwqWWDIxx5FyVyzZGsDrOhU2eO6K2bHCcde7p264rPaoxsG6rs5owC+9krvzPnAOAb91QWyYuqnQ==}
 
   unocss@66.1.0-beta.7:
     resolution: {integrity: sha512-LFS45xWUOfu1+4EaFlSvpcXEJ6ZYwZ3HMmQpgKRvMmp6WAcv+WQEgvgM6Y/ar8TIFBpXwr5fvSM/OEXesqX7Ng==}
@@ -9310,7 +9306,7 @@ snapshots:
       '@internationalized/date': 3.7.0
       '@internationalized/number': 3.6.0
       '@tanstack/vue-virtual': 3.13.2(vue@3.5.13(typescript@5.6.3))
-      '@vinicunca/perkakas': 1.4.0
+      '@vinicunca/perkakas': 1.5.0
       '@vueuse/core': 12.5.0(typescript@5.6.3)
       '@vueuse/shared': 12.5.0(typescript@5.6.3)
       aria-hidden: 1.2.4
@@ -9367,11 +9363,11 @@ snapshots:
       - typescript
       - vitest
 
-  '@vinicunca/perkakas@1.4.0':
+  '@vinicunca/perkakas@1.5.0':
     dependencies:
       type-fest: 4.37.0
 
-  '@vinicunca/unocss-preset@1.12.0(@vinicunca/perkakas@1.4.0)(unocss@66.1.0-beta.7(@unocss/webpack@66.1.0-beta.7(webpack@5.98.0))(postcss@8.5.3)(vite@6.2.2(@types/node@22.13.5)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.6.3)))':
+  '@vinicunca/unocss-preset@1.12.0(@vinicunca/perkakas@1.5.0)(unocss@66.1.0-beta.7(@unocss/webpack@66.1.0-beta.7(webpack@5.98.0))(postcss@8.5.3)(vite@6.2.2(@types/node@22.13.5)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.6.3)))':
     dependencies:
       '@unocss/core': 66.1.0-beta.7
       '@unocss/preset-icons': 66.1.0-beta.7
@@ -9381,7 +9377,7 @@ snapshots:
       '@unocss/preset-wind4': 66.1.0-beta.7
       '@unocss/transformer-directives': 66.1.0-beta.7
       '@unocss/transformer-variant-group': 66.1.0-beta.7
-      '@vinicunca/perkakas': 1.4.0
+      '@vinicunca/perkakas': 1.5.0
       defu: 6.1.4
       postcss: 8.5.3
       postcss-js: 4.0.1(postcss@8.5.3)
@@ -9389,7 +9385,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@vinicunca/unocss-preset@1.12.0(@vinicunca/perkakas@1.4.0)(unocss@66.1.0-beta.7(@unocss/webpack@66.1.0-beta.7(webpack@5.98.0))(postcss@8.5.3)(vite@6.2.2(@types/node@22.13.5)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.8.2)))':
+  '@vinicunca/unocss-preset@1.12.0(@vinicunca/perkakas@1.5.0)(unocss@66.1.0-beta.7(@unocss/webpack@66.1.0-beta.7(webpack@5.98.0))(postcss@8.5.3)(vite@6.2.2(@types/node@22.13.5)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.8.2)))':
     dependencies:
       '@unocss/core': 66.1.0-beta.7
       '@unocss/preset-icons': 66.1.0-beta.7
@@ -9399,7 +9395,7 @@ snapshots:
       '@unocss/preset-wind4': 66.1.0-beta.7
       '@unocss/transformer-directives': 66.1.0-beta.7
       '@unocss/transformer-variant-group': 66.1.0-beta.7
-      '@vinicunca/perkakas': 1.4.0
+      '@vinicunca/perkakas': 1.5.0
       defu: 6.1.4
       postcss: 8.5.3
       postcss-js: 4.0.1(postcss@8.5.3)
@@ -10093,7 +10089,7 @@ snapshots:
       chalk: 5.4.1
       cli-boxes: 3.0.0
       string-width: 7.2.0
-      type-fest: 4.35.0
+      type-fest: 4.37.0
       widest-line: 5.0.0
       wrap-ansi: 9.0.0
 
@@ -10692,7 +10688,7 @@ snapshots:
 
   dot-prop@9.0.0:
     dependencies:
-      type-fest: 4.35.0
+      type-fest: 4.37.0
 
   dotenv@16.4.7: {}
 
@@ -13439,7 +13435,7 @@ snapshots:
     dependencies:
       '@babel/code-frame': 7.26.2
       index-to-position: 0.1.2
-      type-fest: 4.35.0
+      type-fest: 4.37.0
 
   parse-ms@4.0.0: {}
 
@@ -13785,14 +13781,14 @@ snapshots:
     dependencies:
       find-up-simple: 1.0.0
       read-pkg: 9.0.1
-      type-fest: 4.35.0
+      type-fest: 4.37.0
 
   read-pkg@9.0.1:
     dependencies:
       '@types/normalize-package-data': 2.4.4
       normalize-package-data: 6.0.2
       parse-json: 8.1.0
-      type-fest: 4.35.0
+      type-fest: 4.37.0
       unicorn-magic: 0.1.0
 
   readable-stream@2.3.8:
@@ -14533,8 +14529,6 @@ snapshots:
 
   type-fest@2.19.0: {}
 
-  type-fest@4.35.0: {}
-
   type-fest@4.37.0: {}
 
   type-level-regexp@0.1.17: {}
@@ -14733,9 +14727,9 @@ snapshots:
 
   universalify@2.0.1: {}
 
-  unocss-variants@1.0.0-alpha.1:
+  unocss-variants@1.0.0-alpha.2:
     dependencies:
-      '@vinicunca/perkakas': 1.4.0
+      '@vinicunca/perkakas': 1.5.0
       defu: 6.1.4
 
   unocss@66.1.0-beta.7(@unocss/webpack@66.1.0-beta.7(webpack@5.98.0))(postcss@8.5.3)(vite@6.2.2(@types/node@22.13.5)(jiti@2.4.2)(lightningcss@1.29.1)(terser@5.39.0)(yaml@2.7.0))(vue@3.5.13(typescript@5.6.3)):

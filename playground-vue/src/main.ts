@@ -1,4 +1,4 @@
-import PohonPlugin from '@vinicunca/pohon/vue-plugin';
+import PohonVuePlugin from '@vinicunca/pohon/vue-plugin';
 import { createApp, defineAsyncComponent, ref } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
 import App from './app.vue';
@@ -28,7 +28,7 @@ Object.entries(components).forEach(([path, component]) => {
 });
 
 app.use(router);
-app.use(PohonPlugin);
+app.use(PohonVuePlugin);
 
 // @ts-expect-error unknown global property
 globalThis.useFetch = async (url: string, options: RequestInit & { transform?: (data) => any } = {}) => {

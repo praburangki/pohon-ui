@@ -2,7 +2,7 @@
 
 export const cardTheme = {
   slots: {
-    root: 'rounded-[calc(var(--pohon-radius)*2)]',
+    root: 'rounded-pohon-2',
     header: 'p-4 sm:px-6',
     body: 'p-4 sm:p-6',
     footer: 'p-4 sm:px-6',

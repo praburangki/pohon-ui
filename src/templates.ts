@@ -87,7 +87,7 @@ export function getTemplates(options: ModuleOptions, pohonConfig: Record<string,
   templates.push({
     filename: 'types/pohon.d.ts',
     getContents: () => `import * as pohon from '#build/pohon';
-import type { DeepPartial } from '@vinicunca/pohon';
+import type { DeepPartial } from '@vinicunca/perkakas';
 import type { defaultConfig } from 'unocss-variants';
 import type { colors } from 'unocss/preset-mini';
 

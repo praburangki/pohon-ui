@@ -1,5 +1,6 @@
 import { PohonPlugin } from './unplugin';
 
-export type { PohonOptions } from './unplugin';
+export type { PohonOptions, PohonThemeColor } from './unplugin';
 
-export default PohonPlugin.vite;
+export { resolveColorsConfig } from './unplugin';
+export const PohonPluginVite = PohonPlugin.vite;
