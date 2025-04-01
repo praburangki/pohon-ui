@@ -51,67 +51,78 @@ export default (options: Required<ModuleOptions>) => ({
       },
     },
   },
-  compoundVariants: [{
-    orientation: 'horizontal',
-    size: 'xs',
-    class: {
-      track: '',
+  compoundVariants: [
+    {
+      orientation: 'horizontal',
+      size: 'xs',
+      class: {
+        track: '',
+      },
     },
-  }, {
-    orientation: 'horizontal',
-    size: 'sm',
-    class: {
-      track: '',
+    {
+      orientation: 'horizontal',
+      size: 'sm',
+      class: {
+        track: '',
+      },
     },
-  }, {
-    orientation: 'horizontal',
-    size: 'md',
-    class: {
-      track: '',
+    {
+      orientation: 'horizontal',
+      size: 'md',
+      class: {
+        track: '',
+      },
     },
-  }, {
-    orientation: 'horizontal',
-    size: 'lg',
-    class: {
-      track: '',
+    {
+      orientation: 'horizontal',
+      size: 'lg',
+      class: {
+        track: '',
+      },
     },
-  }, {
-    orientation: 'horizontal',
-    size: 'xl',
-    class: {
-      track: '',
+    {
+      orientation: 'horizontal',
+      size: 'xl',
+      class: {
+        track: '',
+      },
     },
-  }, {
-    orientation: 'vertical',
-    size: 'xs',
-    class: {
-      track: '',
+    {
+      orientation: 'vertical',
+      size: 'xs',
+      class: {
+        track: '',
+      },
     },
-  }, {
-    orientation: 'vertical',
-    size: 'sm',
-    class: {
-      track: '',
+    {
+      orientation: 'vertical',
+      size: 'sm',
+      class: {
+        track: '',
+      },
     },
-  }, {
-    orientation: 'vertical',
-    size: 'md',
-    class: {
-      track: '',
+    {
+      orientation: 'vertical',
+      size: 'md',
+      class: {
+        track: '',
+      },
     },
-  }, {
-    orientation: 'vertical',
-    size: 'lg',
-    class: {
-      track: '',
+    {
+      orientation: 'vertical',
+      size: 'lg',
+      class: {
+        track: '',
+      },
     },
-  }, {
-    orientation: 'vertical',
-    size: 'xl',
-    class: {
-      track: '',
+    {
+      orientation: 'vertical',
+      size: 'xl',
+      class: {
+        track: '',
+      },
     },
-  }],
+  ],
   defaultVariants: {
     size: 'md',
     color: 'primary',

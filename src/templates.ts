@@ -88,7 +88,6 @@ export function getTemplates(options: ModuleOptions, pohonConfig: Record<string,
     filename: 'types/pohon.d.ts',
     getContents: () => `import * as pohon from '#build/pohon';
 import type { DeepPartial } from '@vinicunca/perkakas';
-import type { defaultConfig } from 'unocss-variants';
 import type { colors } from 'unocss/preset-mini';
 
 const icons = ${JSON.stringify(pohonConfig.icons)};
@@ -102,7 +101,6 @@ type AppConfigPohon = {
     neutral?: NeutralColor;
   }
   icons?: Partial<typeof icons>;
-  uv?: typeof defaultConfig;
 } & DeepPartial<typeof pohon>;
 
 declare module '@nuxt/schema' {

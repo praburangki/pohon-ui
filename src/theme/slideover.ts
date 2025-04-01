@@ -31,29 +31,34 @@ export default {
       },
     },
   },
-  compoundVariants: [{
-    transition: true,
-    side: 'top',
-    class: {
-      content: '',
+  compoundVariants: [
+    {
+      transition: true,
+      side: 'top',
+      class: {
+        content: '',
+      },
     },
-  }, {
-    transition: true,
-    side: 'right',
-    class: {
-      content: '',
+    {
+      transition: true,
+      side: 'right',
+      class: {
+        content: '',
+      },
     },
-  }, {
-    transition: true,
-    side: 'bottom',
-    class: {
-      content: '',
+    {
+      transition: true,
+      side: 'bottom',
+      class: {
+        content: '',
+      },
     },
-  }, {
-    transition: true,
-    side: 'left',
-    class: {
-      content: '',
+    {
+      transition: true,
+      side: 'left',
+      class: {
+        content: '',
+      },
     },
-  }],
+  ],
 };

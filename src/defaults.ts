@@ -1,5 +1,4 @@
 import { pick } from '@vinicunca/perkakas';
-
 import icons from './theme/icons';
 
 export function getDefaultPohonConfig(colors?: Array<string>) {

@@ -68,62 +68,71 @@ export default (options: Required<ModuleOptions>) => ({
       },
     },
   },
-  compoundVariants: [{
-    orientation: 'horizontal',
-    variant: 'pill',
-    class: {
-      indicator: '',
+  compoundVariants: [
+    {
+      orientation: 'horizontal',
+      variant: 'pill',
+      class: {
+        indicator: '',
+      },
     },
-  }, {
-    orientation: 'horizontal',
-    variant: 'link',
-    class: {
-      list: '',
-      indicator: '',
+    {
+      orientation: 'horizontal',
+      variant: 'link',
+      class: {
+        list: '',
+        indicator: '',
+      },
     },
-  }, {
-    orientation: 'vertical',
-    variant: 'pill',
-    class: {
-      indicator: '',
-      list: '',
+    {
+      orientation: 'vertical',
+      variant: 'pill',
+      class: {
+        indicator: '',
+        list: '',
+      },
     },
-  }, {
-    orientation: 'vertical',
-    variant: 'link',
-    class: {
-      list: '',
-      indicator: '',
+    {
+      orientation: 'vertical',
+      variant: 'link',
+      class: {
+        list: '',
+        indicator: '',
+      },
     },
-  }, ...(options.theme.colors || []).map((color: string) => ({
-    color,
-    variant: 'pill',
-    class: {
-      indicator: '',
-      trigger: '',
+    ...(options.theme.colors || []).map((color: string) => ({
+      color,
+      variant: 'pill',
+      class: {
+        indicator: '',
+        trigger: '',
+      },
+    })),
+    {
+      color: 'neutral',
+      variant: 'pill',
+      class: {
+        indicator: '',
+        trigger: '',
+      },
     },
-  })), {
-    color: 'neutral',
-    variant: 'pill',
-    class: {
-      indicator: '',
-      trigger: '',
+    ...(options.theme.colors || []).map((color: string) => ({
+      color,
+      variant: 'link',
+      class: {
+        indicator: '',
+        trigger: '',
+      },
+    })),
+    {
+      color: 'neutral',
+      variant: 'link',
+      class: {
+        indicator: '',
+        trigger: '',
+      },
     },
-  }, ...(options.theme.colors || []).map((color: string) => ({
-    color,
-    variant: 'link',
-    class: {
-      indicator: '',
-      trigger: '',
-    },
-  })), {
-    color: 'neutral',
-    variant: 'link',
-    class: {
-      indicator: '',
-      trigger: '',
-    },
-  }],
+  ],
   defaultVariants: {
     color: 'primary',
     variant: 'pill',

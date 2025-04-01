@@ -40,55 +40,64 @@ export default (options: Required<ModuleOptions>) => ({
       },
     },
   },
-  compoundVariants: [...(options.theme.colors || []).map((color: string) => ({
-    color,
-    variant: 'solid',
-    class: {
-      root: '',
+  compoundVariants: [
+    ...(options.theme.colors || []).map((color: string) => ({
+      color,
+      variant: 'solid',
+      class: {
+        root: '',
+      },
+    })),
+    ...(options.theme.colors || []).map((color: string) => ({
+      color,
+      variant: 'outline',
+      class: {
+        root: '',
+      },
+    })),
+    ...(options.theme.colors || []).map((color: string) => ({
+      color,
+      variant: 'soft',
+      class: {
+        root: '',
+      },
+    })),
+    ...(options.theme.colors || []).map((color: string) => ({
+      color,
+      variant: 'subtle',
+      class: {
+        root: '',
+      },
+    })),
+    {
+      color: 'neutral',
+      variant: 'solid',
+      class: {
+        root: '',
+      },
     },
-  })), ...(options.theme.colors || []).map((color: string) => ({
-    color,
-    variant: 'outline',
-    class: {
-      root: '',
+    {
+      color: 'neutral',
+      variant: 'outline',
+      class: {
+        root: '',
+      },
     },
-  })), ...(options.theme.colors || []).map((color: string) => ({
-    color,
-    variant: 'soft',
-    class: {
-      root: '',
+    {
+      color: 'neutral',
+      variant: 'soft',
+      class: {
+        root: '',
+      },
     },
-  })), ...(options.theme.colors || []).map((color: string) => ({
-    color,
-    variant: 'subtle',
-    class: {
-      root: '',
+    {
+      color: 'neutral',
+      variant: 'subtle',
+      class: {
+        root: '',
+      },
     },
-  })), {
-    color: 'neutral',
-    variant: 'solid',
-    class: {
-      root: '',
-    },
-  }, {
-    color: 'neutral',
-    variant: 'outline',
-    class: {
-      root: '',
-    },
-  }, {
-    color: 'neutral',
-    variant: 'soft',
-    class: {
-      root: '',
-    },
-  }, {
-    color: 'neutral',
-    variant: 'subtle',
-    class: {
-      root: '',
-    },
-  }],
+  ],
   defaultVariants: {
     color: 'primary',
     variant: 'solid',

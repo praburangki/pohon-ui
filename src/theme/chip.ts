@@ -34,23 +34,28 @@ export default (options: Required<ModuleOptions>) => ({
       false: '',
     },
   },
-  compoundVariants: [{
-    position: 'top-right',
-    inset: false,
-    class: '',
-  }, {
-    position: 'bottom-right',
-    inset: false,
-    class: '',
-  }, {
-    position: 'top-left',
-    inset: false,
-    class: '',
-  }, {
-    position: 'bottom-left',
-    inset: false,
-    class: '',
-  }],
+  compoundVariants: [
+    {
+      position: 'top-right',
+      inset: false,
+      class: '',
+    },
+    {
+      position: 'bottom-right',
+      inset: false,
+      class: '',
+    },
+    {
+      position: 'top-left',
+      inset: false,
+      class: '',
+    },
+    {
+      position: 'bottom-left',
+      inset: false,
+      class: '',
+    },
+  ],
   defaultVariants: {
     size: 'md',
     color: 'primary',

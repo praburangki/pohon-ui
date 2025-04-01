@@ -41,43 +41,50 @@ export default (options: Required<ModuleOptions>) => ({
       neutral: '',
     },
   },
-  compoundVariants: [...(options.theme.colors || []).map((loadingColor: string) => ({
-    loading: true,
-    loadingColor,
-    class: {
-      thead: '',
+  compoundVariants: [
+    ...(options.theme.colors || []).map((loadingColor: string) => ({
+      loading: true,
+      loadingColor,
+      class: {
+        thead: '',
+      },
+    })),
+    {
+      loading: true,
+      loadingColor: 'neutral',
+      class: {
+        thead: '',
+      },
     },
-  })), {
-    loading: true,
-    loadingColor: 'neutral',
-    class: {
-      thead: '',
+    {
+      loading: true,
+      loadingAnimation: 'carousel',
+      class: {
+        thead: '',
+      },
     },
-  }, {
-    loading: true,
-    loadingAnimation: 'carousel',
-    class: {
-      thead: '',
+    {
+      loading: true,
+      loadingAnimation: 'carousel-inverse',
+      class: {
+        thead: '',
+      },
     },
-  }, {
-    loading: true,
-    loadingAnimation: 'carousel-inverse',
-    class: {
-      thead: '',
+    {
+      loading: true,
+      loadingAnimation: 'swing',
+      class: {
+        thead: '',
+      },
     },
-  }, {
-    loading: true,
-    loadingAnimation: 'swing',
-    class: {
-      thead: '',
+    {
+      loading: true,
+      loadingAnimation: 'elastic',
+      class: {
+        thead: '',
+      },
     },
-  }, {
-    loading: true,
-    loadingAnimation: 'elastic',
-    class: {
-      thead: '',
-    },
-  }],
+  ],
   defaultVariants: {
     loadingColor: 'primary',
     loadingAnimation: 'carousel',

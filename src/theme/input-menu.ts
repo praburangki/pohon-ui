@@ -97,16 +97,19 @@ export default (options: Required<ModuleOptions>) => {
         },
       },
     },
-    compoundVariants: [...(options.theme.colors || []).map((color: string) => ({
-      color,
-      multiple: true,
-      variant: ['outline', 'subtle'],
-      class: '',
-    })), {
-      color: 'neutral',
-      multiple: true,
-      variant: ['outline', 'subtle'],
-      class: '',
-    }],
+    compoundVariants: [
+      ...(options.theme.colors || []).map((color: string) => ({
+        color,
+        multiple: true,
+        variant: ['outline', 'subtle'],
+        class: '',
+      })),
+      {
+        color: 'neutral',
+        multiple: true,
+        variant: ['outline', 'subtle'],
+        class: '',
+      },
+    ],
   }, input(options));
 };

@@ -46,47 +46,58 @@ export default (options: Required<ModuleOptions>) => ({
       },
     },
   },
-  compoundVariants: [{
-    orientation: 'horizontal',
-    size: 'xs',
-    class: { border: '' },
-  }, {
-    orientation: 'horizontal',
-    size: 'sm',
-    class: { border: '' },
-  }, {
-    orientation: 'horizontal',
-    size: 'md',
-    class: { border: '' },
-  }, {
-    orientation: 'horizontal',
-    size: 'lg',
-    class: { border: '' },
-  }, {
-    orientation: 'horizontal',
-    size: 'xl',
-    class: { border: '' },
-  }, {
-    orientation: 'vertical',
-    size: 'xs',
-    class: { border: '' },
-  }, {
-    orientation: 'vertical',
-    size: 'sm',
-    class: { border: '' },
-  }, {
-    orientation: 'vertical',
-    size: 'md',
-    class: { border: '' },
-  }, {
-    orientation: 'vertical',
-    size: 'lg',
-    class: { border: '' },
-  }, {
-    orientation: 'vertical',
-    size: 'xl',
-    class: { border: '' },
-  }],
+  compoundVariants: [
+    {
+      orientation: 'horizontal',
+      size: 'xs',
+      class: { border: '' },
+    },
+    {
+      orientation: 'horizontal',
+      size: 'sm',
+      class: { border: '' },
+    },
+    {
+      orientation: 'horizontal',
+      size: 'md',
+      class: { border: '' },
+    },
+    {
+      orientation: 'horizontal',
+      size: 'lg',
+      class: { border: '' },
+    },
+    {
+      orientation: 'horizontal',
+      size: 'xl',
+      class: { border: '' },
+    },
+    {
+      orientation: 'vertical',
+      size: 'xs',
+      class: { border: '' },
+    },
+    {
+      orientation: 'vertical',
+      size: 'sm',
+      class: { border: '' },
+    },
+    {
+      orientation: 'vertical',
+      size: 'md',
+      class: { border: '' },
+    },
+    {
+      orientation: 'vertical',
+      size: 'lg',
+      class: { border: '' },
+    },
+    {
+      orientation: 'vertical',
+      size: 'xl',
+      class: { border: '' },
+    },
+  ],
   defaultVariants: {
     color: 'neutral',
     size: 'xs',

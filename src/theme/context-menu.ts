@@ -85,21 +85,24 @@ export default (options: Required<ModuleOptions>) => ({
       },
     },
   },
-  compoundVariants: [...(options.theme.colors || []).map((color: string) => ({
-    color,
-    active: false,
-    class: {
-      item: '',
-      itemLeadingIcon: '',
-    },
-  })), ...(options.theme.colors || []).map((color: string) => ({
-    color,
-    active: true,
-    class: {
-      item: '',
-      itemLeadingIcon: '',
-    },
-  }))],
+  compoundVariants: [
+    ...(options.theme.colors || []).map((color: string) => ({
+      color,
+      active: false,
+      class: {
+        item: '',
+        itemLeadingIcon: '',
+      },
+    })),
+    ...(options.theme.colors || []).map((color: string) => ({
+      color,
+      active: true,
+      class: {
+        item: '',
+        itemLeadingIcon: '',
+      },
+    })),
+  ],
   defaultVariants: {
     size: 'md',
   },

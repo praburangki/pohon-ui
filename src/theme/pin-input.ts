@@ -38,23 +38,28 @@ export default (options: Required<ModuleOptions>) => ({
       true: '',
     },
   },
-  compoundVariants: [...(options.theme.colors || []).map((color: string) => ({
-    color,
-    variant: ['outline', 'subtle'],
-    class: '',
-  })), ...(options.theme.colors || []).map((color: string) => ({
-    color,
-    highlight: true,
-    class: '',
-  })), {
-    color: 'neutral',
-    variant: ['outline', 'subtle'],
-    class: '',
-  }, {
-    color: 'neutral',
-    highlight: true,
-    class: '',
-  }],
+  compoundVariants: [
+    ...(options.theme.colors || []).map((color: string) => ({
+      color,
+      variant: ['outline', 'subtle'],
+      class: '',
+    })),
+    ...(options.theme.colors || []).map((color: string) => ({
+      color,
+      highlight: true,
+      class: '',
+    })),
+    {
+      color: 'neutral',
+      variant: ['outline', 'subtle'],
+      class: '',
+    },
+    {
+      color: 'neutral',
+      highlight: true,
+      class: '',
+    },
+  ],
   defaultVariants: {
     size: '',
     color: '',

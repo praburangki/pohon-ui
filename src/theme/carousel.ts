@@ -1,6 +1,4 @@
-import type { ModuleOptions } from '../module';
-
-export default (options: Required<ModuleOptions>) => ({
+export default {
   slots: {
     root: '',
     viewport: '',
@@ -34,4 +32,4 @@ export default (options: Required<ModuleOptions>) => ({
       },
     },
   },
-});
+};

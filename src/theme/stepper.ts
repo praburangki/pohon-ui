@@ -81,47 +81,58 @@ export default (options: Required<ModuleOptions>) => ({
     },
   },
 
-  compoundVariants: [{
-    orientation: 'horizontal',
-    size: 'xs',
-    class: { separator: '' },
-  }, {
-    orientation: 'horizontal',
-    size: 'sm',
-    class: { separator: '' },
-  }, {
-    orientation: 'horizontal',
-    size: 'md',
-    class: { separator: '' },
-  }, {
-    orientation: 'horizontal',
-    size: 'lg',
-    class: { separator: '' },
-  }, {
-    orientation: 'horizontal',
-    size: 'xl',
-    class: { separator: '' },
-  }, {
-    orientation: 'vertical',
-    size: 'xs',
-    class: { separator: '', item: '' },
-  }, {
-    orientation: 'vertical',
-    size: 'sm',
-    class: { separator: '', item: '' },
-  }, {
-    orientation: 'vertical',
-    size: 'md',
-    class: { separator: '', item: '' },
-  }, {
-    orientation: 'vertical',
-    size: 'lg',
-    class: { separator: '', item: '' },
-  }, {
-    orientation: 'vertical',
-    size: 'xl',
-    class: { separator: '', item: '' },
-  }],
+  compoundVariants: [
+    {
+      orientation: 'horizontal',
+      size: 'xs',
+      class: { separator: '' },
+    },
+    {
+      orientation: 'horizontal',
+      size: 'sm',
+      class: { separator: '' },
+    },
+    {
+      orientation: 'horizontal',
+      size: 'md',
+      class: { separator: '' },
+    },
+    {
+      orientation: 'horizontal',
+      size: 'lg',
+      class: { separator: '' },
+    },
+    {
+      orientation: 'horizontal',
+      size: 'xl',
+      class: { separator: '' },
+    },
+    {
+      orientation: 'vertical',
+      size: 'xs',
+      class: { separator: '', item: '' },
+    },
+    {
+      orientation: 'vertical',
+      size: 'sm',
+      class: { separator: '', item: '' },
+    },
+    {
+      orientation: 'vertical',
+      size: 'md',
+      class: { separator: '', item: '' },
+    },
+    {
+      orientation: 'vertical',
+      size: 'lg',
+      class: { separator: '', item: '' },
+    },
+    {
+      orientation: 'vertical',
+      size: 'xl',
+      class: { separator: '', item: '' },
+    },
+  ],
 
   defaultVariants: {
     size: 'md',

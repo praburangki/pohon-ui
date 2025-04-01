@@ -58,15 +58,18 @@ export default (options: Required<ModuleOptions>) => ({
       true: '',
     },
   },
-  compoundVariants: [...(options.theme.colors || []).map((color: string) => ({
-    color,
-    checked: true,
-    class: '',
-  })), {
-    color: 'neutral',
-    checked: true,
-    class: '',
-  }],
+  compoundVariants: [
+    ...(options.theme.colors || []).map((color: string) => ({
+      color,
+      checked: true,
+      class: '',
+    })),
+    {
+      color: 'neutral',
+      checked: true,
+      class: '',
+    },
+  ],
   defaultVariants: {
     size: 'md',
     color: 'primary',

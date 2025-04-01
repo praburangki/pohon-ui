@@ -36,7 +36,7 @@ export interface AvatarSlots {
 
 <script lang="ts" setup>
 import ImageComponent from '#build/pohon-image-component';
-import { APrimitive } from '@vinicunca/akar';
+import { APrimitive, APrimitiveSlot } from '@vinicunca/akar';
 import { computed, ref, watch } from 'vue';
 import { useAvatarGroup } from '../composables/use-avatar-group';
 import PIcon from './icon.vue';
@@ -111,16 +111,21 @@ function onError() {
       @error="onError"
     />
 
-    <slot v-else>
-      <PIcon
-        v-if="icon"
-        :name="icon"
-        :class="pohon.icon({ class: props.pohon?.icon })"
-      />
-      <span
-        v-else
-        :class="pohon.fallback({ class: props.pohon?.fallback })"
-      >{{ fallback || '&nbsp;' }}</span>
-    </slot>
+    <APrimitiveSlot
+      v-else
+      v-bind="$attrs"
+    >
+      <slot>
+        <PIcon
+          v-if="icon"
+          :name="icon"
+          :class="pohon.icon({ class: props.pohon?.icon })"
+        />
+        <span
+          v-else
+          :class="pohon.fallback({ class: props.pohon?.fallback })"
+        >{{ fallback || '&nbsp;' }}</span>
+      </slot>
+    </APrimitiveSlot>
   </APrimitive>
 </template>

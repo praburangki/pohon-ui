@@ -62,19 +62,22 @@ export default (options: Required<ModuleOptions>) => ({
       },
     },
   },
-  compoundVariants: [...(options.theme.colors || []).map((color: string) => ({
-    color,
-    selected: true,
-    class: {
-      link: '',
+  compoundVariants: [
+    ...(options.theme.colors || []).map((color: string) => ({
+      color,
+      selected: true,
+      class: {
+        link: '',
+      },
+    })),
+    {
+      color: 'neutral',
+      selected: true,
+      class: {
+        link: '',
+      },
     },
-  })), {
-    color: 'neutral',
-    selected: true,
-    class: {
-      link: '',
-    },
-  }],
+  ],
   defaultVariants: {
     color: 'primary',
     size: 'md',

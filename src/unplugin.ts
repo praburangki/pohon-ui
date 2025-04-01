@@ -47,6 +47,12 @@ export interface PohonOptions extends Omit<ModuleOptions, 'fonts' | 'colorMode'>
    * Override options for `unplugin-vue-components`
    */
   components?: Partial<ComponentsOptions>;
+
+  /**
+   * The root directory of the project.
+   * @defaultValue `process.cwd()`
+   */
+  projectRoot?: string;
 }
 
 export const runtimeDir = normalize(fileURLToPath(new URL('./runtime', import.meta.url)));

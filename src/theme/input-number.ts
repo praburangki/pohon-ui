@@ -47,63 +47,78 @@ export default (options: Required<ModuleOptions>) => {
         true: '',
       },
     },
-    compoundVariants: [...(options.theme.colors || []).map((color: string) => ({
-      color,
-      variant: ['outline', 'subtle'],
-      class: '',
-    })), ...(options.theme.colors || []).map((color: string) => ({
-      color,
-      highlight: true,
-      class: '',
-    })), {
-      color: 'neutral',
-      variant: ['outline', 'subtle'],
-      class: '',
-    }, {
-      color: 'neutral',
-      highlight: true,
-      class: '',
-    }, {
-      orientation: 'horizontal',
-      size: 'xs',
-      class: '',
-    }, {
-      orientation: 'horizontal',
-      size: 'sm',
-      class: '',
-    }, {
-      orientation: 'horizontal',
-      size: 'md',
-      class: '',
-    }, {
-      orientation: 'horizontal',
-      size: 'lg',
-      class: '',
-    }, {
-      orientation: 'horizontal',
-      size: 'xl',
-      class: '',
-    }, {
-      orientation: 'vertical',
-      size: 'xs',
-      class: '',
-    }, {
-      orientation: 'vertical',
-      size: 'sm',
-      class: '',
-    }, {
-      orientation: 'vertical',
-      size: 'md',
-      class: '',
-    }, {
-      orientation: 'vertical',
-      size: 'lg',
-      class: '',
-    }, {
-      orientation: 'vertical',
-      size: 'xl',
-      class: '',
-    }],
+    compoundVariants: [
+      ...(options.theme.colors || []).map((color: string) => ({
+        color,
+        variant: ['outline', 'subtle'],
+        class: '',
+      })),
+      ...(options.theme.colors || []).map((color: string) => ({
+        color,
+        highlight: true,
+        class: '',
+      })),
+      {
+        color: 'neutral',
+        variant: ['outline', 'subtle'],
+        class: '',
+      },
+      {
+        color: 'neutral',
+        highlight: true,
+        class: '',
+      },
+      {
+        orientation: 'horizontal',
+        size: 'xs',
+        class: '',
+      },
+      {
+        orientation: 'horizontal',
+        size: 'sm',
+        class: '',
+      },
+      {
+        orientation: 'horizontal',
+        size: 'md',
+        class: '',
+      },
+      {
+        orientation: 'horizontal',
+        size: 'lg',
+        class: '',
+      },
+      {
+        orientation: 'horizontal',
+        size: 'xl',
+        class: '',
+      },
+      {
+        orientation: 'vertical',
+        size: 'xs',
+        class: '',
+      },
+      {
+        orientation: 'vertical',
+        size: 'sm',
+        class: '',
+      },
+      {
+        orientation: 'vertical',
+        size: 'md',
+        class: '',
+      },
+      {
+        orientation: 'vertical',
+        size: 'lg',
+        class: '',
+      },
+      {
+        orientation: 'vertical',
+        size: 'xl',
+        class: '',
+      },
+    ],
     defaultVariants: {
       size: 'md',
       color: 'primary',

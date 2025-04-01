@@ -88,125 +88,150 @@ export default (options: Required<ModuleOptions>) => ({
       },
     },
   },
-  compoundVariants: [{
-    inverted: true,
-    orientation: 'horizontal',
-    class: {
-      step: '',
-      status: '',
+  compoundVariants: [
+    {
+      inverted: true,
+      orientation: 'horizontal',
+      class: {
+        step: '',
+        status: '',
+      },
     },
-  }, {
-    inverted: true,
-    orientation: 'vertical',
-    class: {
-      steps: '',
-      status: '',
+    {
+      inverted: true,
+      orientation: 'vertical',
+      class: {
+        steps: '',
+        status: '',
+      },
     },
-  }, {
-    orientation: 'horizontal',
-    size: '2xs',
-    class: '',
-  }, {
-    orientation: 'horizontal',
-    size: 'xs',
-    class: '',
-  }, {
-    orientation: 'horizontal',
-    size: 'sm',
-    class: '',
-  }, {
-    orientation: 'horizontal',
-    size: 'md',
-    class: '',
-  }, {
-    orientation: 'horizontal',
-    size: 'lg',
-    class: '',
-  }, {
-    orientation: 'horizontal',
-    size: 'xl',
-    class: '',
-  }, {
-    orientation: 'horizontal',
-    size: '2xl',
-    class: '',
-  }, {
-    orientation: 'vertical',
-    size: '2xs',
-    class: '',
-  }, {
-    orientation: 'vertical',
-    size: 'xs',
-    class: '',
-  }, {
-    orientation: 'vertical',
-    size: 'sm',
-    class: '',
-  }, {
-    orientation: 'vertical',
-    size: 'md',
-    class: '',
-  }, {
-    orientation: 'vertical',
-    size: 'lg',
-    class: '',
-  }, {
-    orientation: 'vertical',
-    size: 'xl',
-    class: '',
-  }, {
-    orientation: 'vertical',
-    size: '2xl',
-    class: '',
-  }, {
-    orientation: 'horizontal',
-    animation: 'carousel',
-    class: {
-      indicator: '',
+    {
+      orientation: 'horizontal',
+      size: '2xs',
+      class: '',
     },
-  }, {
-    orientation: 'vertical',
-    animation: 'carousel',
-    class: {
-      indicator: '',
+    {
+      orientation: 'horizontal',
+      size: 'xs',
+      class: '',
     },
-  }, {
-    orientation: 'horizontal',
-    animation: 'carousel-inverse',
-    class: {
-      indicator: '',
+    {
+      orientation: 'horizontal',
+      size: 'sm',
+      class: '',
     },
-  }, {
-    orientation: 'vertical',
-    animation: 'carousel-inverse',
-    class: {
-      indicator: '',
+    {
+      orientation: 'horizontal',
+      size: 'md',
+      class: '',
     },
-  }, {
-    orientation: 'horizontal',
-    animation: 'swing',
-    class: {
-      indicator: '',
+    {
+      orientation: 'horizontal',
+      size: 'lg',
+      class: '',
     },
-  }, {
-    orientation: 'vertical',
-    animation: 'swing',
-    class: {
-      indicator: '',
+    {
+      orientation: 'horizontal',
+      size: 'xl',
+      class: '',
     },
-  }, {
-    orientation: 'horizontal',
-    animation: 'elastic',
-    class: {
-      indicator: '',
+    {
+      orientation: 'horizontal',
+      size: '2xl',
+      class: '',
     },
-  }, {
-    orientation: 'vertical',
-    animation: 'elastic',
-    class: {
-      indicator: '',
+    {
+      orientation: 'vertical',
+      size: '2xs',
+      class: '',
     },
-  }],
+    {
+      orientation: 'vertical',
+      size: 'xs',
+      class: '',
+    },
+    {
+      orientation: 'vertical',
+      size: 'sm',
+      class: '',
+    },
+    {
+      orientation: 'vertical',
+      size: 'md',
+      class: '',
+    },
+    {
+      orientation: 'vertical',
+      size: 'lg',
+      class: '',
+    },
+    {
+      orientation: 'vertical',
+      size: 'xl',
+      class: '',
+    },
+    {
+      orientation: 'vertical',
+      size: '2xl',
+      class: '',
+    },
+    {
+      orientation: 'horizontal',
+      animation: 'carousel',
+      class: {
+        indicator: '',
+      },
+    },
+    {
+      orientation: 'vertical',
+      animation: 'carousel',
+      class: {
+        indicator: '',
+      },
+    },
+    {
+      orientation: 'horizontal',
+      animation: 'carousel-inverse',
+      class: {
+        indicator: '',
+      },
+    },
+    {
+      orientation: 'vertical',
+      animation: 'carousel-inverse',
+      class: {
+        indicator: '',
+      },
+    },
+    {
+      orientation: 'horizontal',
+      animation: 'swing',
+      class: {
+        indicator: '',
+      },
+    },
+    {
+      orientation: 'vertical',
+      animation: 'swing',
+      class: {
+        indicator: '',
+      },
+    },
+    {
+      orientation: 'horizontal',
+      animation: 'elastic',
+      class: {
+        indicator: '',
+      },
+    },
+    {
+      orientation: 'vertical',
+      animation: 'elastic',
+      class: {
+        indicator: '',
+      },
+    },
+  ],
   defaultVariants: {
     animation: 'carousel',
     color: 'primary',

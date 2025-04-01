@@ -1,6 +1,4 @@
-import type { ModuleOptions } from '../module';
-
-export default (options: Required<ModuleOptions>) => ({
+export default {
   slots: {
     root: '',
     list: '',
@@ -31,12 +29,14 @@ export default (options: Required<ModuleOptions>) => ({
       true: '',
     },
   },
-  compoundVariants: [{
-    disabled: false,
-    active: false,
-    to: true,
-    class: {
-      link: '',
+  compoundVariants: [
+    {
+      disabled: false,
+      active: false,
+      to: true,
+      class: {
+        link: '',
+      },
     },
-  }],
-});
+  ],
+};
