@@ -1,4 +1,6 @@
 import type { PohonOptions } from '../src/vite';
+import { dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import vue from '@vitejs/plugin-vue';
 import UnoCss from 'unocss/vite';
 import { defineConfig } from 'vite';
@@ -13,6 +15,8 @@ import {
 const THEME_COLORS = ['primary', 'secondary', 'tertiary', 'info', 'success', 'warning', 'error'];
 
 const colorConfigs = resolveColorsConfig(THEME_COLORS);
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const pohonOptions: PohonOptions = {
   pohon: {
@@ -32,6 +36,7 @@ const pohonOptions: PohonOptions = {
   components: {
     dirs: ['../playground/app/components'],
   },
+  projectRoot: __dirname,
 };
 
 // https://vitejs.dev/config/
@@ -46,6 +51,11 @@ export default defineConfig({
     PohonPluginVite(pohonOptions),
     UnoCss(),
   ],
+  // resolve: {
+  //   alias: {
+  //     '#pohon': './.vite/pohon',
+  //   },
+  // },
   optimizeDeps: {
     // prevents reloading page when navigating between components
     include: [

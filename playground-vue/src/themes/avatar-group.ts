@@ -1,4 +1,9 @@
-export const avatarGroupTheme = {
+import type AvatarGroupTypes from '#build/pohon/avatar-group';
+import type { DeepPartial } from '@vinicunca/perkakas';
+
+// @unocss-include
+
+export const avatarGroupTheme: DeepPartial<typeof AvatarGroupTypes> = {
   slots: {
     root: 'inline-flex flex-row-reverse justify-end',
     base: 'relative rounded-full ring-$pohon-bg first:me-0',

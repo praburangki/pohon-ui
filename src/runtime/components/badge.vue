@@ -52,6 +52,8 @@ export interface BadgeSlots {
 import type { AvatarProps } from '../types';
 import { APrimitive } from '@vinicunca/akar';
 import { computed } from 'vue';
+import { useButtonGroup } from '../composables/use-button-group';
+import { useComponentIcons } from '../composables/use-component-icons';
 import PAvatar from './avatar.vue';
 import PIcon from './icon.vue';
 

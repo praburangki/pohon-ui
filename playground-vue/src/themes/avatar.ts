@@ -1,6 +1,9 @@
+import type AvatarTypes from '#build/pohon/avatar';
+import type { DeepPartial } from '@vinicunca/perkakas';
+
 // @unocss-include
 
-export const avatarTheme = {
+export const avatarTheme: DeepPartial<typeof AvatarTypes> = {
   slots: {
     root: 'inline-flex items-center justify-center shrink-0 select-none overflow-hidden rounded-full align-middle bg-$pohon-bg-elevated',
     image: 'h-full w-full rounded-inherit object-cover',

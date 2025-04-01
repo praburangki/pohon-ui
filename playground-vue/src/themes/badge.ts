@@ -1,7 +1,7 @@
-// @unocss-include
-
-import type BadgeTypes from '#build/pohon/badge';
+import type BadgeTypes from '#pohon/badge';
 import type { DeepPartial } from '@vinicunca/perkakas';
+
+// @unocss-include
 
 export function getBadgeTheme(colors: Array<string>): DeepPartial<typeof BadgeTypes> {
   return {
@@ -21,19 +21,19 @@ export function getBadgeTheme(colors: Array<string>): DeepPartial<typeof BadgeTy
         class: `bg-$pohon-brand-${color} color-$pohon-bg`,
       })),
 
-      ...(colors).map((color: any) => ({
+      ...colors.map((color: any) => ({
         color,
         variant: 'outline' as const,
         class: `color-$pohon-brand-${color} ring ring-inset ring-$pohon-brand-${color} ring-opacity-50`,
       })),
 
-      ...(colors).map((color: any) => ({
+      ...colors.map((color: any) => ({
         color,
         variant: 'soft' as const,
         class: `bg-$pohon-brand-${color} bg-opacity-10 color-$pohon-brand-${color}`,
       })),
 
-      ...(colors).map((color: any) => ({
+      ...colors.map((color: any) => ({
         color,
         variant: 'subtle' as const,
         class: `bg-$pohon-brand-${color} bg-opacity-10 color-$pohon-brand-${color} ring ring-inset ring-$pohon-brand-${color}/25`,

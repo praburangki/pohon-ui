@@ -1,14 +1,16 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema';
-import type { VariantProps } from 'unocss-variants';
+import type { ClassValue, VariantProps } from 'unocss-variants';
 import appConfig_ from '#build/app.config';
-import theme from '#build/pohon/avatar-group';
+import avatarGroupTheme from '#build/pohon/avatar-group';
 import { uv } from '../utils/uv';
 
-const appConfigAvatarGroup = appConfig_ as AppConfig & { pohon: { avatarGroup: Partial<typeof theme> } };
+const appConfigAvatarGroup = appConfig_ as AppConfig & {
+  pohon: { avatarGroup: Partial<typeof avatarGroupTheme> };
+};
 
 const avatarGroupFn = uv({
-  extend: uv(theme),
+  extend: uv(avatarGroupTheme),
   ...(appConfigAvatarGroup.pohon?.avatarGroup || {}),
 });
 
@@ -25,8 +27,8 @@ export interface AvatarGroupProps {
    * The maximum number of avatars to display.
    */
   max?: number | string;
-  class?: any;
-  ui?: Partial<typeof avatarGroupFn.slots>;
+  class?: ClassValue;
+  pohon?: Partial<typeof avatarGroupFn.slots>;
 }
 
 export interface AvatarGroupSlots {
@@ -98,19 +100,19 @@ provide(avatarGroupInjectionKey, computed(() => ({
 <template>
   <APrimitive
     :as="as"
-    :class="pohon.root({ class: [props.class, props.ui?.root] })"
+    :class="pohon.root({ class: [props.class, props.pohon?.root] })"
   >
     <PAvatar
       v-if="hiddenCount > 0"
       :text="`+${hiddenCount}`"
-      :class="pohon.base({ class: props.ui?.base })"
+      :class="pohon.base({ class: props.pohon?.base })"
     />
 
     <component
       :is="avatar"
       v-for="(avatar, count) in visibleAvatars"
       :key="count"
-      :class="pohon.base({ class: props.ui?.base })"
+      :class="pohon.base({ class: props.pohon?.base })"
     />
   </APrimitive>
 </template>

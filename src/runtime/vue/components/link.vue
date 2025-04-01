@@ -1,7 +1,11 @@
 <script lang="ts">
+import type { AppConfig } from '@nuxt/schema';
 import type { ButtonHTMLAttributes } from 'vue';
 import type { RouteLocationRaw, RouterLinkProps } from 'vue-router';
+import appConfig_ from '#build/app.config';
+import linkTheme from '#build/pohon/link';
 import { isString } from '@vinicunca/perkakas';
+import { uv } from 'unocss-variants';
 
 interface NuxtLinkProps extends Omit<RouterLinkProps, 'to'> {
   /**
@@ -49,6 +53,15 @@ interface NuxtLinkProps extends Omit<RouterLinkProps, 'to'> {
   noPrefetch?: boolean;
 }
 
+const appConfigLink = appConfig_ as AppConfig & {
+  pohon: { link: Partial<typeof linkTheme> };
+};
+
+const linkUv = uv({
+  extend: uv(linkTheme),
+  ...(appConfigLink.pohon?.link || {}),
+});
+
 export interface LinkProps extends NuxtLinkProps {
   /**
    * The element or component this component should render as when not a link.
@@ -83,15 +96,11 @@ export interface LinkSlots {
 </script>
 
 <script lang="ts" setup>
-import type { AppConfig } from '@nuxt/schema';
-import appConfig_ from '#build/app.config';
-import linkTheme from '#build/pohon/link';
 import { useRoute } from '#imports';
+import { useForwardProps } from '@vinicunca/akar';
 import { reactiveOmit } from '@vueuse/core';
-import { diff, isEqual } from 'ohash';
-import { useForwardProps } from 'reka-ui';
+import { diff, isEqual } from 'ohash/utils';
 import { hasProtocol } from 'ufo';
-import { uv } from 'unocss-variants';
 import { computed, getCurrentInstance } from 'vue';
 import { RouterLink } from 'vue-router';
 
@@ -110,13 +119,6 @@ const props = withDefaults(
 );
 
 defineSlots<LinkSlots>();
-
-const appConfigLink = appConfig_ as AppConfig & { pohon: { link: Partial<typeof linkTheme> } };
-
-const linkUv = uv({
-  extend: uv(linkTheme),
-  ...(appConfigLink.pohon?.link || {}),
-});
 
 // Check if vue-router is available by checking for the injection key
 const hasRouter = computed(() => {
@@ -137,7 +139,21 @@ const route = computed(() => {
 });
 
 const routerLinkProps = useForwardProps(
-  reactiveOmit(props, 'as', 'type', 'disabled', 'active', 'exact', 'exactQuery', 'exactHash', 'activeClass', 'inactiveClass', 'to', 'raw', 'class'),
+  reactiveOmit(
+    props,
+    'as',
+    'type',
+    'disabled',
+    'active',
+    'exact',
+    'exactQuery',
+    'exactHash',
+    'activeClass',
+    'inactiveClass',
+    'to',
+    'raw',
+    'class',
+  ),
 );
 
 const pohon = computed(() => uv({
@@ -153,12 +169,15 @@ const pohon = computed(() => uv({
 function isPartiallyEqual(item1: any, item2: any) {
   const diffedKeys = diff(item1, item2).reduce((filtered, q) => {
     if (q.type === 'added') {
-      filtered.push(q.key);
+      filtered.add(q.key);
     }
     return filtered;
-  }, [] as Array<string>);
+  }, new Set<string>());
 
-  return isEqual(item1, item2, { excludeKeys: (key) => diffedKeys.includes(key) });
+  const item1Filtered = Object.fromEntries(Object.entries(item1).filter(([key]) => !diffedKeys.has(key)));
+  const item2Filtered = Object.fromEntries(Object.entries(item2).filter(([key]) => !diffedKeys.has(key)));
+
+  return isEqual(item1Filtered, item2Filtered);
 }
 
 const isExternal = computed(() => {

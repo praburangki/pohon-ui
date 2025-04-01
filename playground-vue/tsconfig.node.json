@@ -1,5 +1,4 @@
 {
-  "extends": "../.nuxt/tsconfig.json",
   "compilerOptions": {
     "target": "ES2022",
     "lib": ["ES2023"],
@@ -8,6 +7,11 @@
 
     /* Bundler mode */
     "moduleResolution": "bundler",
+    "paths": {
+      "#pohon/*": [
+        "./.vite/pohon/*"
+      ]
+    },
     "allowImportingTsExtensions": true,
 
     /* Linting */

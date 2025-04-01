@@ -1,6 +1,9 @@
+import type CardTypes from '#build/pohon/card';
+import type { DeepPartial } from '@vinicunca/perkakas';
+
 // @unocss-include
 
-export const cardTheme = {
+export const cardTheme: DeepPartial<typeof CardTypes> = {
   slots: {
     root: 'rounded-pohon-2',
     header: 'p-4 sm:px-6',

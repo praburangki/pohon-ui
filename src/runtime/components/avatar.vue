@@ -1,6 +1,6 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema';
-import type { VariantProps } from 'unocss-variants';
+import type { ClassValue, VariantProps } from 'unocss-variants';
 import appConfig_ from '#build/app.config';
 import avatarTheme from '#build/pohon/avatar';
 import { uv } from '../utils/uv';
@@ -25,7 +25,7 @@ export interface AvatarProps {
   icon?: string;
   text?: string;
   size?: AvatarVariants['size'];
-  class?: any;
+  class?: ClassValue;
   pohon?: Partial<typeof avatarFn.slots>;
 }
 

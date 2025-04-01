@@ -1,6 +1,8 @@
 import type { UnpluginOptions } from 'unplugin';
-
 import type { PohonOptions } from '../unplugin';
+import { mkdir, writeFile } from 'node:fs/promises';
+import { resolve } from 'node:path';
+import process from 'node:process';
 import { getTemplates } from '../templates';
 
 /**
@@ -14,6 +16,10 @@ export default function TemplatePlugin(
   const templates = getTemplates(options, appConfig.ui);
   const templateKeys = new Set(templates.map((t) => `#build/${t.filename}`));
 
+  const projectRoot = options.projectRoot || process.cwd();
+
+  const outputDir = resolve(projectRoot, './.vite/pohon');
+
   return {
     name: 'nuxt:pohon:templates',
     enforce: 'pre',
@@ -23,9 +29,19 @@ export default function TemplatePlugin(
       }
     },
     loadInclude: (id) => templateKeys.has(id.replace('virtual:nuxt-pohon-templates/', '#build/')),
-    load(id) {
+    async load(id) {
       id = id.replace('virtual:nuxt-pohon-templates/', '#build/');
-      const content = templates.find((t) => `#build/${t.filename}` === id)!.getContents!({} as any);
+
+      // Create directory if it doesn't exist
+      await mkdir(outputDir, { recursive: true });
+
+      const template = templates.find((t) => `#build/${t.filename}` === id)!;
+      const content = await template.getContents!({} as any);
+      const filename = template.filename!.replace('pohon/', '');
+      const filePath = resolve(outputDir, filename);
+
+      await writeFile(filePath, content, 'utf-8');
+
       return content;
     },
   } satisfies UnpluginOptions;

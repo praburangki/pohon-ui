@@ -1,6 +1,8 @@
 <script lang="ts">
+import type { APrimitiveProps } from '@vinicunca/akar';
+
 export interface LinkBaseProps {
-  as?: string;
+  as?: APrimitiveProps['as'];
   type?: string;
   disabled?: boolean;
   onClick?: ((event: MouseEvent) => void | Promise<void>) | Array<((event: MouseEvent) => void | Promise<void>)>;
