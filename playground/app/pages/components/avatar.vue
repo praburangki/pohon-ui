@@ -47,7 +47,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
         :size="size"
         :max="2"
       >
-        <!-- <UChip
+        <PChip
           inset
           text="1"
         >
@@ -55,7 +55,7 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
             src="https://github.com/praburangki.png"
             alt="Benjamin Canac"
           />
-        </UChip> -->
+        </PChip>
         <PAvatar
           src="https://github.com/romhml.png"
           alt="Romain Hamel"
