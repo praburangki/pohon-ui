@@ -32,9 +32,9 @@ export interface CardProps {
 }
 
 export interface CardSlots {
-  header: (props?: object) => any;
-  default: (props?: object) => any;
-  footer: (props?: object) => any;
+  header: (props?: {}) => any;
+  default: (props?: {}) => any;
+  footer: (props?: {}) => any;
 }
 </script>
 

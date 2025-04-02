@@ -21,7 +21,7 @@ export interface AvatarGroupProps {
    * The element or component this component should render as.
    * @defaultValue 'div'
    */
-  as?: any;
+  as?: APrimitiveProps['as'];
   size?: AvatarGroupVariants['size'];
   /**
    * The maximum number of avatars to display.
@@ -32,7 +32,7 @@ export interface AvatarGroupProps {
 }
 
 export interface AvatarGroupSlots {
-  default: (props?: object) => any;
+  default: (props?: {}) => any;
 }
 </script>
 

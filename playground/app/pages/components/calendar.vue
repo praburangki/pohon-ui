@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { CalendarDate } from '@internationalized/date'
+import { CalendarDate } from '@internationalized/date';
 
-const singleValue = shallowRef(new CalendarDate(2022, 1, 10))
+const singleValue = shallowRef(new CalendarDate(2022, 1, 10));
 const multipleValue = shallowRef({
   start: new CalendarDate(2022, 1, 10),
-  end: new CalendarDate(2022, 1, 20)
-})
+  end: new CalendarDate(2022, 1, 20),
+});
 </script>
 
 <template>
@@ -14,7 +14,10 @@ const multipleValue = shallowRef({
       <UCalendar v-model="singleValue" />
     </div>
     <div class="flex justify-center gap-2">
-      <UCalendar v-model="multipleValue" range />
+      <UCalendar
+        v-model="multipleValue"
+        range
+      />
     </div>
   </div>
 </template>

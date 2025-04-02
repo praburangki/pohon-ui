@@ -82,7 +82,29 @@
     "release": "release-it --preRelease=alpha --npm.tag=next"
   },
   "peerDependencies": {
-    "typescript": "^5.6.3"
+    "joi": "^17.13.0",
+    "superstruct": "^2.0.0",
+    "typescript": "^5.6.3",
+    "valibot": "^1.0.0",
+    "yup": "^1.6.0",
+    "zod": "^3.24.0"
+  },
+  "peerDependenciesMeta": {
+    "joi": {
+      "optional": true
+    },
+    "valibot": {
+      "optional": true
+    },
+    "superstruct": {
+      "optional": true
+    },
+    "yup": {
+      "optional": true
+    },
+    "zod": {
+      "optional": true
+    }
   },
   "dependencies": {
     "@iconify/vue": "catalog:",
@@ -121,8 +143,7 @@
     "unocss-variants": "catalog:",
     "unplugin": "catalog:",
     "unplugin-auto-import": "catalog:",
-    "unplugin-vue-components": "catalog:",
-    "vaul-vue": "catalog:"
+    "unplugin-vue-components": "catalog:"
   },
   "devDependencies": {
     "@nuxt/module-builder": "catalog:",
@@ -140,6 +161,7 @@
     "nuxt-component-meta": "catalog:",
     "release-it": "catalog:",
     "superstruct": "catalog:",
+    "typescript": "catalog:",
     "valibot": "catalog:",
     "vitest": "catalog:",
     "vitest-environment-nuxt": "catalog:",
@@ -151,10 +173,8 @@
     "@vinicunca/pohon": "workspace:*",
     "chokidar": "3.6.0",
     "debug": "4.3.7",
-    "rollup": "4.32.1",
-    "unimport": "3.14.5",
-    "unplugin": "^2.2.0",
-    "vue": "3.5.13",
+    "rollup": "4.34.9",
+    "unplugin": "^2.2.2",
     "vue-tsc": "2.2.0"
   }
 }

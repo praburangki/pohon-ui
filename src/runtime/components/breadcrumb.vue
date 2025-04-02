@@ -4,11 +4,11 @@ import type { APrimitiveProps } from '@vinicunca/akar';
 import type { ClassValue } from 'unocss-variants';
 import type { AvatarProps, LinkProps } from '../types';
 import type { DynamicSlots, PartialString } from '../types/type.utils';
-import _appConfig from '#build/app.config';
+import appConfig_ from '#build/app.config';
 import breadcrumbTheme from '#build/pohon/breadcrumb';
 import { uv } from '../utils/uv';
 
-const appConfigBreadcrumb = _appConfig as AppConfig & {
+const appConfigBreadcrumb = appConfig_ as AppConfig & {
   pohon: { breadcrumb: Partial<typeof breadcrumbTheme> };
 };
 
@@ -37,7 +37,7 @@ export interface BreadcrumbProps<T extends BreadcrumbItem = BreadcrumbItem> {
   items?: Array<T>;
   /**
    * The icon to use as a separator.
-   * @defaultValue appConfig.ui.icons.chevronRight
+   * @defaultValue appConfig.pohon.icons.chevronRight
    * @IconifyIcon
    */
   separatorIcon?: string;
@@ -120,12 +120,12 @@ const pohon = breadcrumb();
               :class="pohon.link({ class: [props.pohon?.link, item.class], active: index === items!.length - 1, disabled: !!item.disabled, to: !!item.to })"
             >
               <slot
-                :name="(item.slot || 'item') as keyof BreadcrumbSlots<T>"
+                :name="((item.slot || 'item') as keyof BreadcrumbSlots<T>)"
                 :item="item"
                 :index="index"
               >
                 <slot
-                  :name="(item.slot ? `${item.slot}-leading` : 'item-leading') as keyof BreadcrumbSlots<T>"
+                  :name="((item.slot ? `${item.slot}-leading` : 'item-leading') as keyof BreadcrumbSlots<T>)"
                   :item="item"
                   :active="index === items!.length - 1"
                   :index="index"
@@ -137,7 +137,7 @@ const pohon = breadcrumb();
                   />
                   <PAvatar
                     v-else-if="item.avatar"
-                    :size="(props.pohon?.linkLeadingAvatarSize || pohon.linkLeadingAvatarSize()) as AvatarProps['size']"
+                    :size="((props.pohon?.linkLeadingAvatarSize || pohon.linkLeadingAvatarSize()) as AvatarProps['size'])"
                     v-bind="item.avatar"
                     :class="pohon.linkLeadingAvatar({ class: props.pohon?.linkLeadingAvatar, active: index === items!.length - 1 })"
                   />
@@ -148,7 +148,7 @@ const pohon = breadcrumb();
                   :class="pohon.linkLabel({ class: props.pohon?.linkLabel })"
                 >
                   <slot
-                    :name="(item.slot ? `${item.slot}-label` : 'item-label') as keyof BreadcrumbSlots<T>"
+                    :name="((item.slot ? `${item.slot}-label` : 'item-label') as keyof BreadcrumbSlots<T>)"
                     :item="item"
                     :active="index === items!.length - 1"
                     :index="index"
@@ -158,7 +158,7 @@ const pohon = breadcrumb();
                 </span>
 
                 <slot
-                  :name="(item.slot ? `${item.slot}-trailing` : 'item-trailing') as keyof BreadcrumbSlots<T>"
+                  :name="((item.slot ? `${item.slot}-trailing` : 'item-trailing') as keyof BreadcrumbSlots<T>)"
                   :item="item"
                   :active="index === items!.length - 1"
                   :index="index"

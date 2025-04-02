@@ -8,7 +8,7 @@ import type { AutoplayOptionsType } from 'embla-carousel-autoplay';
 import type { ClassNamesOptionsType } from 'embla-carousel-class-names';
 import type { FadeOptionsType } from 'embla-carousel-fade';
 import type { WheelGesturesPluginOptions } from 'embla-carousel-wheel-gestures';
-import type { AcceptableValue } from 'reka-ui';
+import type { AcceptableValue } from '@vinicunca/akar';
 import type { ClassValue, VariantProps } from 'unocss-variants';
 import type { ButtonProps } from '../types';
 import type { PartialString } from '../types/type.utils';

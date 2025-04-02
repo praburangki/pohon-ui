@@ -42,9 +42,9 @@ export interface BadgeProps extends Omit<UseComponentIconsProps, 'loading' | 'lo
 }
 
 export interface BadgeSlots {
-  default: (props?: object) => any;
-  leading?: (props?: object) => any;
-  trailing?: (props?: object) => any;
+  default: (props?: {}) => any;
+  leading?: (props?: {}) => any;
+  trailing?: (props?: {}) => any;
 }
 </script>
 
@@ -96,7 +96,7 @@ const pohon = computed(() => badgeFn({
         v-else-if="!!avatar"
         v-bind="avatar"
         :class="pohon.leadingAvatar({ class: props.pohon?.leadingAvatar })"
-        :size="(props.pohon?.leadingAvatarSize || pohon.leadingAvatarSize()) as AvatarProps['size']"
+        :size="((props.pohon?.leadingAvatarSize || pohon.leadingAvatarSize()) as AvatarProps['size'])"
       />
     </slot>
 

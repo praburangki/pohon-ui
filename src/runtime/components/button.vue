@@ -5,14 +5,14 @@ import type { UseComponentIconsProps } from '../composables/use-component-icons'
 import type { AvatarProps } from '../types';
 import type { PartialString } from '../types/type.utils';
 import type { LinkProps } from './link.vue';
-import _appConfig from '#build/app.config';
-import theme from '#build/pohon/button';
+import appConfig_ from '#build/app.config';
+import buttonTheme from '#build/pohon/button';
 import { uv } from '../utils/uv';
 
-const appConfigButton = _appConfig as AppConfig & { pohon: { button: Partial<typeof theme> } };
+const appConfigButton = appConfig_ as AppConfig & { pohon: { button: Partial<typeof buttonTheme> } };
 
 const buttonFn = uv({
-  extend: uv(theme),
+  extend: uv(buttonTheme),
   ...(appConfigButton.pohon?.button || {}),
 });
 
@@ -46,9 +46,9 @@ export interface ButtonProps extends UseComponentIconsProps, Omit<LinkProps, 'ra
 }
 
 export interface ButtonSlots {
-  leading: (props?: object) => any;
-  default: (props?: object) => any;
-  trailing: (props?: object) => any;
+  leading: (props?: {}) => any;
+  default: (props?: {}) => any;
+  trailing: (props?: {}) => any;
 }
 </script>
 
@@ -158,7 +158,7 @@ const pohon = computed(() => uv({
         />
         <PAvatar
           v-else-if="!!avatar"
-          :size="(props.pohon?.leadingAvatarSize || pohon.leadingAvatarSize()) as AvatarProps['size']"
+          :size="((props.pohon?.leadingAvatarSize || pohon.leadingAvatarSize()) as AvatarProps['size'])"
           v-bind="avatar"
           :class="pohon.leadingAvatar({ class: props.pohon?.leadingAvatar, active })"
         />

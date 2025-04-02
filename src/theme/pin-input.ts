@@ -61,8 +61,8 @@ export default (options: Required<ModuleOptions>) => ({
     },
   ],
   defaultVariants: {
-    size: '',
-    color: '',
-    variant: '',
+    size: 'md',
+    color: 'primary',
+    variant: 'outline',
   },
 });

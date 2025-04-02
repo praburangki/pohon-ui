@@ -13,7 +13,7 @@ export default {
     },
   },
   defaultVariants: {
-    variant: '',
-    size: '',
+    variant: 'outline',
+    size: 'md',
   },
 };

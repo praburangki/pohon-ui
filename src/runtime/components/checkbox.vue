@@ -1,7 +1,6 @@
 <script lang="ts">
 import type { AppConfig } from '@nuxt/schema';
-import type { APrimitiveProps } from '@vinicunca/akar';
-import type { CheckboxRootProps } from 'reka-ui';
+import type { ACheckboxRootProps, APrimitiveProps } from '@vinicunca/akar';
 import type { ClassValue, VariantProps } from 'unocss-variants';
 import appConfig_ from '#build/app.config';
 import checkboxTheme from '#build/pohon/checkbox';
@@ -18,7 +17,7 @@ const checkboxFn = uv({
 
 type CheckboxVariants = VariantProps<typeof checkboxFn>;
 
-export interface CheckboxProps extends Pick<CheckboxRootProps, 'disabled' | 'required' | 'name' | 'value' | 'id' | 'defaultValue'> {
+export interface CheckboxProps extends Pick<ACheckboxRootProps, 'disabled' | 'required' | 'name' | 'value' | 'id' | 'defaultValue'> {
   /**
    * The element or component this component should render as.
    * @defaultValue 'div'

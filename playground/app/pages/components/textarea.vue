@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { upperFirst } from 'scule'
-import theme from '#build/ui/textarea'
+import theme from '#build/pohon/textarea';
+import { upperFirst } from 'scule';
 
-const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
-const variants = Object.keys(theme.variants.variant) as Array<keyof typeof theme.variants.variant>
+const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>;
+const variants = Object.keys(theme.variants.variant) as Array<keyof typeof theme.variants.variant>;
 </script>
 
 <template>
@@ -12,7 +12,13 @@ const variants = Object.keys(theme.variants.variant) as Array<keyof typeof theme
       <UTextarea autofocus />
     </div>
     <div class="flex items-center gap-2">
-      <UTextarea v-for="variant in variants" :key="variant" :placeholder="upperFirst(variant)" :variant="variant" class="w-48" />
+      <UTextarea
+        v-for="variant in variants"
+        :key="variant"
+        :placeholder="upperFirst(variant)"
+        :variant="variant"
+        class="w-48"
+      />
     </div>
     <div class="flex items-center gap-2">
       <UTextarea
@@ -36,11 +42,24 @@ const variants = Object.keys(theme.variants.variant) as Array<keyof typeof theme
       />
     </div>
     <div class="flex flex-col gap-4 w-48">
-      <UTextarea placeholder="Search..." disabled />
-      <UTextarea autoresize :maxrows="5" :rows="1" />
+      <UTextarea
+        placeholder="Search..."
+        disabled
+      />
+      <UTextarea
+        autoresize
+        :maxrows="5"
+        :rows="1"
+      />
     </div>
     <div class="flex items-center gap-4">
-      <UTextarea v-for="size in sizes" :key="size" placeholder="Search..." :size="size" class="w-48" />
+      <UTextarea
+        v-for="size in sizes"
+        :key="size"
+        placeholder="Search..."
+        :size="size"
+        class="w-48"
+      />
     </div>
   </div>
 </template>

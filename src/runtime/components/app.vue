@@ -9,7 +9,7 @@ export interface AppProps<T extends Messages = Messages> extends Omit<ConfigProv
 }
 
 export interface AppSlots {
-  default: (props?: object) => any;
+  default: (props?: {}) => any;
 }
 
 export default {
@@ -18,12 +18,12 @@ export default {
 </script>
 
 <script setup lang="ts" generic="T extends Messages">
+import { ConfigProvider, TooltipProvider, useForwardProps } from '@vinicunca/akar';
 import { reactivePick } from '@vueuse/core';
-import { ConfigProvider, TooltipProvider, useForwardProps } from 'reka-ui';
 import { provide, toRef, useId } from 'vue';
 import { localeContextInjectionKey } from '../composables/useLocale';
 import UOverlayProvider from './OverlayProvider.vue';
-import UToaster from './Toaster.vue';
+import UToaster from './toaster.vue';
 
 const props = defineProps<AppProps<T>>();
 defineSlots<AppSlots>();

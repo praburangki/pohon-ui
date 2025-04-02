@@ -1,21 +1,30 @@
 <script setup lang="ts">
-import theme from '#build/ui/pin-input'
+import theme from '#build/pohon/pin-input';
 
-const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
-const variants = Object.keys(theme.variants.variant) as Array<keyof typeof theme.variants.variant>
+const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>;
+const variants = Object.keys(theme.variants.variant) as Array<keyof typeof theme.variants.variant>;
 
-const onComplete = (e: string[]) => {
-  alert(e.join(''))
+function onComplete(e: Array<string>) {
+  alert(e.join(''));
 }
 </script>
 
 <template>
   <div class="flex flex-col items-center gap-4">
     <div class="flex gap-4">
-      <UPinInput placeholder="○" autofocus @complete="onComplete" />
+      <UPinInput
+        placeholder="○"
+        autofocus
+        @complete="onComplete"
+      />
     </div>
     <div class="flex items-center gap-4">
-      <UPinInput v-for="variant in variants" :key="variant" placeholder="○" :variant="variant" />
+      <UPinInput
+        v-for="variant in variants"
+        :key="variant"
+        placeholder="○"
+        :variant="variant"
+      />
     </div>
     <div class="flex items-center gap-4">
       <UPinInput
@@ -37,8 +46,14 @@ const onComplete = (e: string[]) => {
       />
     </div>
     <div class="flex flex-col gap-4">
-      <UPinInput placeholder="○" disabled />
-      <UPinInput placeholder="○" required />
+      <UPinInput
+        placeholder="○"
+        disabled
+      />
+      <UPinInput
+        placeholder="○"
+        required
+      />
     </div>
     <div class="flex items-center gap-4">
       <UPinInput

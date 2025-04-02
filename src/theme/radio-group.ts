@@ -24,6 +24,30 @@ export default (options: Required<ModuleOptions>) => ({
         indicator: '',
       },
     },
+    variant: {
+      list: {
+      },
+      card: {
+        item: '',
+      },
+      table: {
+        item: '',
+      },
+    },
+    indicator: {
+      start: {
+        item: '',
+        base: '',
+      },
+      end: {
+        item: '',
+        base: '',
+      },
+      hidden: {
+        base: '',
+        wrapper: '',
+      },
+    },
     orientation: {
       horizontal: {
         fieldset: '',
@@ -90,5 +114,8 @@ export default (options: Required<ModuleOptions>) => ({
   defaultVariants: {
     size: 'md',
     color: 'primary',
+    variant: 'list',
+    orientation: 'vertical',
+    indicator: 'start',
   },
 });

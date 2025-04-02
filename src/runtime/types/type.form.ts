@@ -1,3 +1,4 @@
+/* eslint-disable ts/consistent-type-definitions */
 import type { StandardSchemaV1 } from '@standard-schema/spec';
 import type { Schema as JoiSchema } from 'joi';
 import type { Struct as SuperstructSchema } from 'superstruct';
@@ -44,29 +45,29 @@ export interface FormErrorWithId extends FormError {
 
 export type FormSubmitEvent<T> = SubmitEvent & { data: T };
 
-export interface FormValidationError {
+export type FormValidationError = {
   errors: Array<FormErrorWithId>;
   children?: Array<FormValidationError>;
-}
+};
 
 export type FormErrorEvent = SubmitEvent & FormValidationError;
 
-export interface FormChildAttachEvent {
+export type FormChildAttachEvent = {
   type: 'attach';
   formId: string | number;
   validate: Form<any>['validate'];
-}
+};
 
-export interface FormChildDetachEvent {
+export type FormChildDetachEvent = {
   type: 'detach';
   formId: string | number;
-}
+};
 
-export interface FormInputEvent<T extends object> {
+export type FormInputEvent<T extends object> = {
   type: FormInputEvents;
   name: keyof T;
   eager?: boolean;
-}
+};
 
 export type FormEvent<T extends object> =
   | FormInputEvent<T>

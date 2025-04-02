@@ -1,46 +1,61 @@
 <script setup lang="ts">
-import theme from '#build/ui/stepper'
+import theme from '#build/pohon/stepper';
 
-const sizes = Object.keys(theme.variants.size)
-const colors = Object.keys(theme.variants.color)
-const orientations = Object.keys(theme.variants.orientation)
+const sizes = Object.keys(theme.variants.size);
+const colors = Object.keys(theme.variants.color);
+const orientations = Object.keys(theme.variants.orientation);
 
-const orientation = ref('horizontal' as const)
-const color = ref('primary' as const)
-const size = ref('md' as const)
+const orientation = ref('horizontal' as const);
+const color = ref('primary' as const);
+const size = ref('md' as const);
 
 const items = [
   {
     slot: 'address' as const,
     title: 'Address',
     description: 'Add your address here',
-    icon: 'i-lucide-house'
-  }, {
+    icon: 'i-lucide-house',
+  },
+  {
     slot: 'shipping' as const,
     title: 'Shipping',
     description: 'Set your preferred shipping method',
-    icon: 'i-lucide-truck'
-  }, {
+    icon: 'i-lucide-truck',
+  },
+  {
     slot: 'payment' as const,
     title: 'Payment',
     description: 'Select your payment method',
-    icon: 'i-lucide-credit-card'
-  }, {
+    icon: 'i-lucide-credit-card',
+  },
+  {
     slot: 'checkout' as const,
     title: 'Checkout',
-    description: 'Confirm your order'
-  }
-]
+    description: 'Confirm your order',
+  },
+];
 
-const stepper = useTemplateRef('stepper')
+const stepper = useTemplateRef('stepper');
 </script>
 
 <template>
   <div class="flex flex-col gap-10">
     <div class="flex items-center justify-center gap-2 ">
-      <USelect v-model="color" :items="colors" placeholder="Color" />
-      <USelect v-model="orientation" :items="orientations" placeholder="Orientation" />
-      <USelect v-model="size" :items="sizes" placeholder="Size" />
+      <USelect
+        v-model="color"
+        :items="colors"
+        placeholder="Color"
+      />
+      <USelect
+        v-model="orientation"
+        :items="orientations"
+        placeholder="Orientation"
+      />
+      <USelect
+        v-model="size"
+        :items="sizes"
+        placeholder="Size"
+      />
     </div>
 
     <UStepper

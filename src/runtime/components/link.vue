@@ -4,8 +4,8 @@ import type { APrimitiveProps } from '@vinicunca/akar';
 import type { ClassValue } from 'unocss-variants';
 import type { ButtonHTMLAttributes } from 'vue';
 import type { RouteLocationRaw, RouterLinkProps } from 'vue-router';
-import _appConfig from '#build/app.config';
-import theme from '#build/pohon/link';
+import appConfig_ from '#build/app.config';
+import linkTheme from '#build/pohon/link';
 import { uv } from '../utils/uv';
 
 interface NuxtLinkProps extends Omit<RouterLinkProps, 'to'> {
@@ -54,12 +54,12 @@ interface NuxtLinkProps extends Omit<RouterLinkProps, 'to'> {
   noPrefetch?: boolean;
 }
 
-const appConfigLink = _appConfig as AppConfig & {
-  pohon: { link: Partial<typeof theme> };
+const appConfigLink = appConfig_ as AppConfig & {
+  pohon: { link: Partial<typeof linkTheme> };
 };
 
-const link = uv({
-  extend: uv(theme),
+const linkFn = uv({
+  extend: uv(linkTheme),
   ...(appConfigLink.pohon?.link || {}),
 });
 
@@ -138,7 +138,7 @@ const nuxtLinkProps = useForwardProps(
 );
 
 const pohon = computed(() => uv({
-  extend: link,
+  extend: linkFn,
   variants: {
     active: {
       true: props.activeClass,

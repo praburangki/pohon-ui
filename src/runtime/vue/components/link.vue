@@ -67,7 +67,7 @@ export interface LinkProps extends NuxtLinkProps {
    * The element or component this component should render as when not a link.
    * @defaultValue 'button'
    */
-  as?: any;
+  as?: APrimitiveProps['as'];
   /**
    * The type of the button when not a link.
    * @defaultValue 'button'
@@ -87,7 +87,7 @@ export interface LinkProps extends NuxtLinkProps {
   custom?: boolean;
   /** When `true`, only styles from `class`, `activeClass`, and `inactiveClass` will be applied. */
   raw?: boolean;
-  class?: any;
+  class?: ClassValue;
 }
 
 export interface LinkSlots {

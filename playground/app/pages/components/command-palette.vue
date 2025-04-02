@@ -1,30 +1,31 @@
 <script setup lang="ts">
+import type { User } from '~/types';
+
 // import { createReusableTemplate, refDebounced } from '@vueuse/core'
-import { createReusableTemplate } from '@vueuse/core'
-import type { User } from '~/types'
+import { createReusableTemplate } from '@vueuse/core';
 
-const [DefineTemplate, ReuseTemplate] = createReusableTemplate()
-const toast = useToast()
+const [DefineTemplate, ReuseTemplate] = createReusableTemplate();
+const toast = useToast();
 
-const open = ref(false)
-const searchTerm = ref('')
+const open = ref(false);
+const searchTerm = ref('');
 // const searchTermDebounced = refDebounced(searchTerm, 200)
-const selected = ref([])
+const selected = ref([]);
 
 const { data: users, status } = await useFetch('https://jsonplaceholder.typicode.com/users', {
   // params: { q: searchTermDebounced },
-  transform: (data: User[]) => {
-    return data?.map(user => ({ id: user.id, label: user.name, suffix: user.email, avatar: { src: `https://i.pravatar.cc/120?img=${user.id}` } })) || []
+  transform: (data: Array<User>) => {
+    return data?.map((user) => ({ id: user.id, label: user.name, suffix: user.email, avatar: { src: `https://i.pravatar.cc/120?img=${user.id}` } })) || [];
   },
-  lazy: true
-})
+  lazy: true,
+});
 
-const loading = ref(false)
+const loading = ref(false);
 
 const groups = computed(() => [{
   id: 'users',
   label: searchTerm.value ? `Users matching “${searchTerm.value}”...` : 'Users',
-  items: users.value || []
+  items: users.value || [],
 }, {
   id: 'actions',
   items: [{
@@ -33,77 +34,77 @@ const groups = computed(() => [{
     icon: 'i-lucide-file-plus',
     loading: loading.value,
     onSelect(e: Event) {
-      e.preventDefault()
+      e.preventDefault();
 
-      toast.add({ title: 'New file added!' })
+      toast.add({ title: 'New file added!' });
 
-      loading.value = true
+      loading.value = true;
 
       setTimeout(() => {
-        loading.value = false
-      }, 2000)
+        loading.value = false;
+      }, 2000);
     },
-    kbds: ['meta', 'N']
+    kbds: ['meta', 'N'],
   }, {
     label: 'Add new folder',
     suffix: 'Create a new folder in the current directory or workspace.',
     icon: 'i-lucide-folder-plus',
     onSelect(e: Event) {
-      e.preventDefault()
+      e.preventDefault();
 
-      toast.add({ title: 'New folder added!' })
+      toast.add({ title: 'New folder added!' });
     },
-    kbds: ['meta', 'F']
+    kbds: ['meta', 'F'],
   }, {
     label: 'Add hashtag',
     suffix: 'Add a hashtag to the current item.',
     icon: 'i-lucide-hash',
     onSelect(e: Event) {
-      e.preventDefault()
+      e.preventDefault();
 
-      toast.add({ title: 'Hashtag added!' })
+      toast.add({ title: 'Hashtag added!' });
     },
-    kbds: ['meta', 'H']
+    kbds: ['meta', 'H'],
   }, {
     label: 'Add label',
     suffix: 'Add a label to the current item.',
     icon: 'i-lucide-tag',
     onSelect(e: Event) {
-      e.preventDefault()
+      e.preventDefault();
 
-      toast.add({ title: 'Label added!' })
+      toast.add({ title: 'Label added!' });
     },
-    kbds: ['meta', 'L']
-  }]
-}])
+    kbds: ['meta', 'L'],
+  }],
+}]);
 
 const labels = [{
   label: 'bug',
   chip: {
-    color: 'error' as const
-  }
+    color: 'error' as const,
+  },
 }, {
   label: 'feature',
   chip: {
-    color: 'success' as const
-  }
+    color: 'success' as const,
+  },
 }, {
   label: 'enhancement',
   chip: {
-    color: 'info' as const
-  }
-}]
-const label = ref()
+    color: 'info' as const,
+  },
+}];
+const label = ref();
 
 // function onSelect(item: typeof groups.value[number]['items'][number]) {
 function onSelect(item: any) {
-  console.log('Selected', item)
+  console.log('Selected', item);
 }
 
 defineShortcuts({
   meta_k: () => open.value = !open.value,
-  ...extractShortcuts(groups.value)
-})
+  ...extractShortcuts(groups.value),
+});
 </script>
 
 <template>
@@ -115,8 +116,8 @@ defineShortcuts({
       :groups="groups"
       :fuse="{
         fuseOptions: {
-          includeMatches: true
-        }
+          includeMatches: true,
+        },
       }"
       multiple
       class="sm:max-h-80"
@@ -127,15 +128,26 @@ defineShortcuts({
   <div class="flex-1 flex flex-col gap-12 w-full max-w-lg">
     <div class="flex items-center justify-between gap-2 mt-[58px]">
       <UModal v-model:open="open">
-        <UButton label="Open modal" color="neutral" variant="outline" />
+        <UButton
+          label="Open modal"
+          color="neutral"
+          variant="outline"
+        />
 
         <template #content>
-          <ReuseTemplate :close="true" @update:open="open = $event" />
+          <ReuseTemplate
+            :close="true"
+            @update:open="open = $event"
+          />
         </template>
       </UModal>
 
       <UDrawer should-scale-background>
-        <UButton label="Open drawer" color="neutral" variant="outline" />
+        <UButton
+          label="Open drawer"
+          color="neutral"
+          variant="outline"
+        />
 
         <template #content>
           <ReuseTemplate class="border-t border-(--ui-border) mt-4" />
@@ -143,10 +155,19 @@ defineShortcuts({
       </UDrawer>
 
       <UPopover :content="{ side: 'right', align: 'start' }">
-        <UButton label="Select label (popover)" color="neutral" variant="outline" />
+        <UButton
+          label="Select label (popover)"
+          color="neutral"
+          variant="outline"
+        />
 
         <template #content>
-          <UCommandPalette v-model="label" placeholder="Search labels..." :groups="[{ id: 'labels', items: labels }]" :ui="{ input: '[&>input]:h-9' }" />
+          <UCommandPalette
+            v-model="label"
+            placeholder="Search labels..."
+            :groups="[{ id: 'labels', items: labels }]"
+            :ui="{ input: '[&>input]:h-9' }"
+          />
         </template>
       </UPopover>
     </div>

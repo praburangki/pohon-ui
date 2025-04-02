@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import theme from '#build/ui/button'
+import theme from '#build/pohon/button';
 
-const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
+const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>;
 </script>
 
 <template>
@@ -16,26 +16,41 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
       </UButtonGroup>
 
       <UButtonGroup>
-        <UButton color="neutral" variant="outline">
+        <UButton
+          color="neutral"
+          variant="outline"
+        >
           Button
         </UButton>
-        <UButton color="neutral" variant="subtle">
+        <UButton
+          color="neutral"
+          variant="subtle"
+        >
           Button
         </UButton>
-        <UButton color="neutral" variant="outline">
+        <UButton
+          color="neutral"
+          variant="outline"
+        >
           Button
         </UButton>
       </UButtonGroup>
 
       <UButtonGroup orientation="vertical">
-        <UButton color="neutral" variant="outline">
+        <UButton
+          color="neutral"
+          variant="outline"
+        >
           Button
         </UButton>
         <UInput placeholder="Search..." />
       </UButtonGroup>
 
       <UButtonGroup>
-        <UButton color="neutral" variant="outline">
+        <UButton
+          color="neutral"
+          variant="outline"
+        >
           Button
         </UButton>
         <UInput placeholder="Search..." />
@@ -43,21 +58,40 @@ const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.varia
 
       <UButtonGroup>
         <UInput placeholder="Search..." />
-        <UButton color="neutral" variant="outline">
+        <UButton
+          color="neutral"
+          variant="outline"
+        >
           Button
         </UButton>
       </UButtonGroup>
 
       <UButtonGroup>
-        <UBadge color="neutral" variant="outline" size="lg" label="https://" />
-        <UInput color="neutral" variant="outline" placeholder="www.example.com" />
+        <UBadge
+          color="neutral"
+          variant="outline"
+          size="lg"
+          label="https://"
+        />
+        <UInput
+          color="neutral"
+          variant="outline"
+          placeholder="www.example.com"
+        />
       </UButtonGroup>
     </div>
 
     <div class="flex gap-4 items-center justify-center">
-      <UButtonGroup v-for="size in sizes" :key="size" :size="size">
+      <UButtonGroup
+        v-for="size in sizes"
+        :key="size"
+        :size="size"
+      >
         <UInput placeholder="Search..." />
-        <UButton color="neutral" variant="outline">
+        <UButton
+          color="neutral"
+          variant="outline"
+        >
           Button
         </UButton>
       </UButtonGroup>

@@ -60,7 +60,6 @@ export default defineConfig({
     // prevents reloading page when navigating between components
     include: [
       '@vinicunca/akar/namespaced',
-      'vaul-vue',
       'embla-carousel-vue',
       'embla-carousel-autoplay',
       'embla-carousel-auto-scroll',

@@ -43,7 +43,7 @@ export interface AccordionProps<T extends AccordionItem = AccordionItem> extends
   items?: Array<T>;
   /**
    * The icon displayed on the right side of the trigger.
-   * @defaultValue appConfig.ui.icons.chevronDown
+   * @defaultValue appConfig.pohon.icons.chevronDown
    * @IconifyIcon
    */
   trailingIcon?: string;
@@ -174,14 +174,14 @@ const pohon = computed(() => accordionFn({
         :class="pohon.content({ class: props.pohon?.content })"
       >
         <slot
-          :name="(item.slot || 'content') as keyof AccordionSlots<T>"
+          :name="((item.slot || 'content') as keyof AccordionSlots<T>)"
           :item="item"
           :index="index"
           :open="open"
         >
           <div :class="pohon.body({ class: props.pohon?.body })">
             <slot
-              :name="(item.slot ? `${item.slot}-body` : 'body') as keyof AccordionSlots<T>"
+              :name="((item.slot ? `${item.slot}-body` : 'body') as keyof AccordionSlots<T>)"
               :item="item"
               :index="index"
               :open="open"

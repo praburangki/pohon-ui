@@ -21,7 +21,7 @@ export interface ButtonGroupProps {
    * The element or component this component should render as.
    * @defaultValue 'div'
    */
-  as?: any;
+  as?: APrimitiveProps['as'];
   /**
    * @defaultValue 'md'
    */
@@ -31,11 +31,11 @@ export interface ButtonGroupProps {
    * @defaultValue 'horizontal'
    */
   orientation?: ButtonGroupVariants['orientation'];
-  class?: any;
+  class?: ClassValue;
 }
 
 export interface ButtonGroupSlots {
-  default: (props?: object) => any;
+  default: (props?: {}) => any;
 }
 </script>
 

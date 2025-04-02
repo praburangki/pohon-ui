@@ -1,53 +1,57 @@
 <script setup lang="ts">
-import type { InputMenuItem, AvatarProps } from '@nuxt/ui'
+import type { AvatarProps, InputMenuItem } from '@nuxt/ui';
 
-import { upperFirst } from 'scule'
-import { refDebounced } from '@vueuse/core'
-import type { User } from '~/types'
-import theme from '#build/ui/input-menu'
+import type { User } from '~/types';
+import theme from '#build/pohon/input-menu';
+import { refDebounced } from '@vueuse/core';
+import { upperFirst } from 'scule';
 
-const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
-const variants = Object.keys(theme.variants.variant) as Array<keyof typeof theme.variants.variant>
+const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>;
+const variants = Object.keys(theme.variants.variant) as Array<keyof typeof theme.variants.variant>;
 
-const fruits = ['Apple', 'Banana', 'Blueberry', 'Grapes', 'Pineapple']
-const vegetables = ['Aubergine', 'Broccoli', 'Carrot', 'Courgette', 'Leek']
+const fruits = ['Apple', 'Banana', 'Blueberry', 'Grapes', 'Pineapple'];
+const vegetables = ['Aubergine', 'Broccoli', 'Carrot', 'Courgette', 'Leek'];
 
-const items = [[{ label: 'Fruits', type: 'label' as const }, ...fruits], [{ label: 'Vegetables', type: 'label' as const }, ...vegetables]]
-const selectedItems = ref([fruits[0]!, vegetables[0]!])
+const items = [[{ label: 'Fruits', type: 'label' as const }, ...fruits], [{ label: 'Vegetables', type: 'label' as const }, ...vegetables]];
+const selectedItems = ref([fruits[0]!, vegetables[0]!]);
 
 const statuses = [{
   label: 'Backlog',
-  icon: 'i-lucide-circle-help'
+  icon: 'i-lucide-circle-help',
 }, {
   label: 'Todo',
-  icon: 'i-lucide-circle-plus'
+  icon: 'i-lucide-circle-plus',
 }, {
   label: 'In Progress',
-  icon: 'i-lucide-circle-arrow-up'
+  icon: 'i-lucide-circle-arrow-up',
 }, {
   label: 'Done',
-  icon: 'i-lucide-circle-check'
+  icon: 'i-lucide-circle-check',
 }, {
   label: 'Canceled',
-  icon: 'i-lucide-circle-x'
-}] satisfies InputMenuItem[]
+  icon: 'i-lucide-circle-x',
+}] satisfies Array<InputMenuItem>;
 
-const searchTerm = ref('')
-const searchTermDebounced = refDebounced(searchTerm, 200)
+const searchTerm = ref('');
+const searchTermDebounced = refDebounced(searchTerm, 200);
 
 const { data: users, status } = await useFetch('https://jsonplaceholder.typicode.com/users', {
   params: { q: searchTermDebounced },
-  transform: (data: User[]) => {
-    return data?.map(user => ({ id: user.id, label: user.name, avatar: { src: `https://i.pravatar.cc/120?img=${user.id}` } })) || []
+  transform: (data: Array<User>) => {
+    return data?.map((user) => ({ id: user.id, label: user.name, avatar: { src: `https://i.pravatar.cc/120?img=${user.id}` } })) || [];
   },
-  lazy: true
-})
+  lazy: true,
+});
 </script>
 
 <template>
   <div class="flex flex-col items-center gap-4">
     <div class="flex flex-col gap-4 w-48">
-      <UInputMenu :items="items" autofocus placeholder="Search..." />
+      <UInputMenu
+        :items="items"
+        autofocus
+        placeholder="Search..."
+      />
     </div>
     <div class="flex items-center gap-2">
       <UInputMenu
@@ -83,10 +87,27 @@ const { data: users, status } = await useFetch('https://jsonplaceholder.typicode
       />
     </div>
     <div class="flex flex-col gap-4 w-48">
-      <UInputMenu :items="items" placeholder="Disabled" disabled />
-      <UInputMenu :items="items" placeholder="Required" required />
-      <UInputMenu v-model="selectedItems" :items="items" placeholder="Multiple" multiple />
-      <UInputMenu :items="items" loading placeholder="Search..." />
+      <UInputMenu
+        :items="items"
+        placeholder="Disabled"
+        disabled
+      />
+      <UInputMenu
+        :items="items"
+        placeholder="Required"
+        required
+      />
+      <UInputMenu
+        v-model="selectedItems"
+        :items="items"
+        placeholder="Multiple"
+        multiple
+      />
+      <UInputMenu
+        :items="items"
+        loading
+        placeholder="Search..."
+      />
     </div>
     <div class="flex items-center gap-4">
       <UInputMenu
@@ -110,7 +131,11 @@ const { data: users, status } = await useFetch('https://jsonplaceholder.typicode
         class="w-48"
       >
         <template #leading="{ modelValue, ui }">
-          <UIcon v-if="modelValue?.icon" :name="modelValue.icon" :class="ui.leadingIcon()" />
+          <UIcon
+            v-if="modelValue?.icon"
+            :name="modelValue.icon"
+            :class="ui.leadingIcon()"
+          />
         </template>
       </UInputMenu>
     </div>
@@ -128,7 +153,11 @@ const { data: users, status } = await useFetch('https://jsonplaceholder.typicode
         class="w-48"
       >
         <template #leading="{ modelValue, ui }">
-          <UAvatar v-if="modelValue?.avatar" :size="(ui.itemLeadingAvatarSize() as AvatarProps['size'])" v-bind="modelValue.avatar" />
+          <UAvatar
+            v-if="modelValue?.avatar"
+            :size="ui.itemLeadingAvatarSize() as AvatarProps['size']"
+            v-bind="modelValue.avatar"
+          />
         </template>
       </UInputMenu>
     </div>

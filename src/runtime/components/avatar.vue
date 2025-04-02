@@ -19,7 +19,7 @@ export interface AvatarProps {
    * The element or component this component should render as.
    * @defaultValue 'span'
    */
-  as?: any;
+  as?: APrimitiveProps['as'];
   src?: string;
   alt?: string;
   icon?: string;
@@ -30,7 +30,7 @@ export interface AvatarProps {
 }
 
 export interface AvatarSlots {
-  default: (props?: object) => any;
+  default: (props?: {}) => any;
 }
 </script>
 

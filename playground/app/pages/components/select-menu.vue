@@ -1,58 +1,61 @@
 <script setup lang="ts">
-import type { SelectMenuItem, AvatarProps } from '@nuxt/ui'
+import type { AvatarProps, SelectMenuItem } from '@nuxt/ui';
 
-import { upperFirst } from 'scule'
-import { refDebounced } from '@vueuse/core'
-import theme from '#build/ui/select-menu'
-import type { User } from '~/types'
+import type { User } from '~/types';
+import theme from '#build/pohon/select-menu';
+import { refDebounced } from '@vueuse/core';
+import { upperFirst } from 'scule';
 
-const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>
-const variants = Object.keys(theme.variants.variant) as Array<keyof typeof theme.variants.variant>
+const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>;
+const variants = Object.keys(theme.variants.variant) as Array<keyof typeof theme.variants.variant>;
 
-const fruits = ['Apple', 'Banana', 'Blueberry', 'Grapes', 'Pineapple']
-const vegetables = ['Aubergine', 'Broccoli', 'Carrot', 'Courgette', 'Leek']
+const fruits = ['Apple', 'Banana', 'Blueberry', 'Grapes', 'Pineapple'];
+const vegetables = ['Aubergine', 'Broccoli', 'Carrot', 'Courgette', 'Leek'];
 
-const items = [[{ label: 'Fruits', type: 'label' }, ...fruits], [{ label: 'Vegetables', type: 'label' }, ...vegetables]] satisfies SelectMenuItem[][]
-const selectedItems = ref([fruits[0]!, vegetables[0]!])
+const items = [[{ label: 'Fruits', type: 'label' }, ...fruits], [{ label: 'Vegetables', type: 'label' }, ...vegetables]] satisfies Array<Array<SelectMenuItem>>;
+const selectedItems = ref([fruits[0]!, vegetables[0]!]);
 
 const statuses = [{
   label: 'Backlog',
   value: 'backlog',
-  icon: 'i-lucide-circle-help'
+  icon: 'i-lucide-circle-help',
 }, {
   label: 'Todo',
   value: 'todo',
-  icon: 'i-lucide-circle-plus'
+  icon: 'i-lucide-circle-plus',
 }, {
   label: 'In Progress',
   value: 'in_progress',
-  icon: 'i-lucide-circle-arrow-up'
+  icon: 'i-lucide-circle-arrow-up',
 }, {
   label: 'Done',
   value: 'done',
-  icon: 'i-lucide-circle-check'
+  icon: 'i-lucide-circle-check',
 }, {
   label: 'Canceled',
   value: 'canceled',
-  icon: 'i-lucide-circle-x'
-}] satisfies SelectMenuItem[]
+  icon: 'i-lucide-circle-x',
+}] satisfies Array<SelectMenuItem>;
 
-const searchTerm = ref('')
-const searchTermDebounced = refDebounced(searchTerm, 200)
+const searchTerm = ref('');
+const searchTermDebounced = refDebounced(searchTerm, 200);
 
 const { data: users, status } = await useFetch('https://jsonplaceholder.typicode.com/users', {
   params: { q: searchTermDebounced },
-  transform: (data: User[]) => {
-    return data?.map(user => ({ id: user.id, label: user.name, avatar: { src: `https://i.pravatar.cc/120?img=${user.id}` } }))
+  transform: (data: Array<User>) => {
+    return data?.map((user) => ({ id: user.id, label: user.name, avatar: { src: `https://i.pravatar.cc/120?img=${user.id}` } }));
   },
-  lazy: true
-})
+  lazy: true,
+});
 </script>
 
 <template>
   <div class="flex flex-col items-center gap-4">
     <div class="flex flex-col gap-4 w-48">
-      <USelectMenu :items="items" placeholder="Search..." />
+      <USelectMenu
+        :items="items"
+        placeholder="Search..."
+      />
     </div>
     <div class="flex items-center gap-2">
       <USelectMenu
@@ -88,10 +91,27 @@ const { data: users, status } = await useFetch('https://jsonplaceholder.typicode
       />
     </div>
     <div class="flex flex-col gap-4 w-48">
-      <USelectMenu :items="items" placeholder="Disabled" disabled />
-      <USelectMenu :items="items" placeholder="Required" required />
-      <USelectMenu v-model="selectedItems" :items="items" placeholder="Multiple" multiple />
-      <USelectMenu :items="items" loading placeholder="Search..." />
+      <USelectMenu
+        :items="items"
+        placeholder="Disabled"
+        disabled
+      />
+      <USelectMenu
+        :items="items"
+        placeholder="Required"
+        required
+      />
+      <USelectMenu
+        v-model="selectedItems"
+        :items="items"
+        placeholder="Multiple"
+        multiple
+      />
+      <USelectMenu
+        :items="items"
+        loading
+        placeholder="Search..."
+      />
     </div>
     <div class="flex items-center gap-4">
       <USelectMenu
@@ -115,7 +135,11 @@ const { data: users, status } = await useFetch('https://jsonplaceholder.typicode
         class="w-48"
       >
         <template #leading="{ modelValue, ui }">
-          <UIcon v-if="modelValue" :name="modelValue.icon" :class="ui.leadingIcon()" />
+          <UIcon
+            v-if="modelValue"
+            :name="modelValue.icon"
+            :class="ui.leadingIcon()"
+          />
         </template>
       </USelectMenu>
     </div>
@@ -134,7 +158,11 @@ const { data: users, status } = await useFetch('https://jsonplaceholder.typicode
         @update:open="searchTerm = ''"
       >
         <template #leading="{ modelValue, ui }">
-          <UAvatar v-if="modelValue?.avatar" :size="(ui.itemLeadingAvatarSize() as AvatarProps['size'])" v-bind="modelValue.avatar" />
+          <UAvatar
+            v-if="modelValue?.avatar"
+            :size="ui.itemLeadingAvatarSize() as AvatarProps['size']"
+            v-bind="modelValue.avatar"
+          />
         </template>
       </USelectMenu>
     </div>

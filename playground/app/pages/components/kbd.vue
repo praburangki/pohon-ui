@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// import theme from '#build/ui/kbd'
+// import theme from '#build/pohon/kbd'
 // import { kbdKeysMap } from '@nuxt/ui/composables/useKbd.js'
 
 // const sizes = Object.keys(theme.variants.size) as Array<keyof typeof theme.variants.size>

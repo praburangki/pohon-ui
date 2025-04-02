@@ -3,11 +3,11 @@ import type { AppConfig } from '@nuxt/schema';
 import type { APrimitiveProps } from '@vinicunca/akar';
 import type { ClassValue, VariantProps } from 'unocss-variants';
 import type { AvatarProps, ButtonProps } from '../types';
-import _appConfig from '#build/app.config';
+import appConfig_ from '#build/app.config';
 import alertTheme from '#build/pohon/alert';
 import { uv } from '../utils/uv';
 
-const appConfigAlert = _appConfig as AppConfig & { pohon: { alert: Partial<typeof alertTheme> } };
+const appConfigAlert = appConfig_ as AppConfig & { pohon: { alert: Partial<typeof alertTheme> } };
 
 const alertFn = uv({
   extend: uv(alertTheme),
@@ -58,7 +58,7 @@ export interface AlertProps {
   close?: boolean | Partial<ButtonProps>;
   /**
    * The icon displayed in the close button.
-   * @defaultValue appConfig.ui.icons.close
+   * @defaultValue appConfig.pohon.icons.close
    * @IconifyIcon
    */
   closeIcon?: string;
@@ -71,11 +71,11 @@ export interface AlertEmits {
 }
 
 export interface AlertSlots {
-  leading: (props?: object) => any;
-  title: (props?: object) => any;
-  description: (props?: object) => any;
-  actions: (props?: object) => any;
-  close: (props: { ui: ReturnType<typeof alertFn> }) => any;
+  leading: (props?: {}) => any;
+  title: (props?: {}) => any;
+  description: (props?: {}) => any;
+  actions: (props?: {}) => any;
+  close: (props: { pohon: ReturnType<typeof alertFn> }) => any;
 }
 </script>
 
@@ -118,7 +118,7 @@ const pohon = computed(() => alertFn({
     <slot name="leading">
       <PAvatar
         v-if="avatar"
-        :size="(props.pohon?.avatarSize || pohon.avatarSize()) as AvatarProps['size']"
+        :size="((props.pohon?.avatarSize || pohon.avatarSize()) as AvatarProps['size'])"
         v-bind="avatar"
         :class="pohon.avatar({ class: props.pohon?.avatar })"
       />
@@ -181,7 +181,7 @@ const pohon = computed(() => alertFn({
 
       <slot
         name="close"
-        :ui="pohon"
+        :pohon="pohon"
       >
         <PButton
           v-if="close"
